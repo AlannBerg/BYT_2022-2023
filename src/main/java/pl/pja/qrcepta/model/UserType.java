@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 public enum UserType {
   DOCTOR("DOCTOR"),
   PHARMACIST("PHARMACIST"),
+  ADMIN("ADMIN"),
   NOT_EXIST("NOT_EXIST");
 
   private final String name;

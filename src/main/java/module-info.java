@@ -4,6 +4,7 @@ module pl.pja.qrcepta {
   requires java.persistence;
   requires org.slf4j;
   requires lombok;
+  requires org.apache.commons.codec;
 
   opens pl.pja.qrcepta to
       javafx.fxml;
