@@ -1,10 +1,10 @@
-package pl.pja.sem5.qrcepta.utlis;
+package pl.pja.qrcepta.utlis;
 
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import pl.pja.sem5.qrcepta.QRceptaApplication;
+import pl.pja.qrcepta.QRceptaApplication;
 
 public class SceneManager {
 

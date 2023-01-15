@@ -1,6 +1,6 @@
-package pl.pja.sem5.qrcepta.services;
+package pl.pja.qrcepta.services;
 
-import pl.pja.sem5.qrcepta.model.UserType;
+import pl.pja.qrcepta.model.UserType;
 
 public interface UserService {
 

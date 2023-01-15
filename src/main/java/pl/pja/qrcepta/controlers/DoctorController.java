@@ -1,4 +1,4 @@
-package pl.pja.sem5.qrcepta.controlers;
+package pl.pja.qrcepta.controlers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

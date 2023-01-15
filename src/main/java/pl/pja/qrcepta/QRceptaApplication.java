@@ -1,9 +1,9 @@
-package pl.pja.sem5.qrcepta;
+package pl.pja.qrcepta;
 
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import pl.pja.sem5.qrcepta.utlis.SceneManager;
+import pl.pja.qrcepta.utlis.SceneManager;
 
 public class QRceptaApplication extends Application {
 

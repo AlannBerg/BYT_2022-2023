@@ -1,4 +1,4 @@
-package pl.pja.sem5.qrcepta.model;
+package pl.pja.qrcepta.model;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

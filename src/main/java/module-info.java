@@ -1,21 +1,21 @@
-module pl.pja.sem5.qrcepta {
+module pl.pja.qrcepta {
   requires javafx.controls;
   requires javafx.fxml;
   requires java.persistence;
   requires org.slf4j;
   requires lombok;
 
-  opens pl.pja.sem5.qrcepta to
+  opens pl.pja.qrcepta to
       javafx.fxml;
 
-  exports pl.pja.sem5.qrcepta;
-  exports pl.pja.sem5.qrcepta.controlers;
+  exports pl.pja.qrcepta;
+  exports pl.pja.qrcepta.controlers;
 
-  opens pl.pja.sem5.qrcepta.controlers to
+  opens pl.pja.qrcepta.controlers to
       javafx.fxml;
 
-  exports pl.pja.sem5.qrcepta.utlis;
+  exports pl.pja.qrcepta.utlis;
 
-  opens pl.pja.sem5.qrcepta.utlis to
+  opens pl.pja.qrcepta.utlis to
       javafx.fxml;
 }

@@ -1,4 +1,4 @@
-package pl.pja.sem5.qrcepta.controlers;
+package pl.pja.qrcepta.controlers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,10 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
-import pl.pja.sem5.qrcepta.utlis.SceneManager;
-import pl.pja.sem5.qrcepta.model.UserType;
-import pl.pja.sem5.qrcepta.services.UserService;
-import pl.pja.sem5.qrcepta.services.UserServiceImpl;
+import pl.pja.qrcepta.model.UserType;
+import pl.pja.qrcepta.services.UserService;
+import pl.pja.qrcepta.services.UserServiceImpl;
+import pl.pja.qrcepta.utlis.SceneManager;
 
 @Slf4j
 public class LogInController {

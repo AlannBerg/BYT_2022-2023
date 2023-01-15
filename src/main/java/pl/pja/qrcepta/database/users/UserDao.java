@@ -1,4 +1,4 @@
-package pl.pja.sem5.qrcepta.database.users;
+package pl.pja.qrcepta.database.users;
 
 public interface UserDao {
 

@@ -1,11 +1,11 @@
-package pl.pja.sem5.qrcepta.services;
+package pl.pja.qrcepta.services;
 
 import static java.util.Objects.nonNull;
 
 import lombok.extern.slf4j.Slf4j;
-import pl.pja.sem5.qrcepta.database.users.UserDao;
-import pl.pja.sem5.qrcepta.database.users.UserDaoImpl;
-import pl.pja.sem5.qrcepta.model.UserType;
+import pl.pja.qrcepta.database.users.UserDao;
+import pl.pja.qrcepta.database.users.UserDaoImpl;
+import pl.pja.qrcepta.model.UserType;
 
 @Slf4j
 public class UserServiceImpl implements UserService {

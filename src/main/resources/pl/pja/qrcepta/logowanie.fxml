@@ -42,7 +42,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pja.sem5.qrcepta.controlers.LogInController">
+<VBox prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pja.qrcepta.controlers.LogInController">
   <children>
     <MenuBar VBox.vgrow="NEVER" />
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="486.0" prefWidth="724.0" VBox.vgrow="ALWAYS">
@@ -54,7 +54,7 @@
         </Label>
             <ImageView fitHeight="504.0" fitWidth="752.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../images/logowanie.jpg" />
+                  <Image url="@images/logowanie.jpg" />
                </image></ImageView>
             <Button fx:id="loginButton" layoutX="134.0" layoutY="387.0" mnemonicParsing="false" onAction="#logInAction" prefHeight="25.0" prefWidth="160.0" text="Zaloguj" />
             <TextField fx:id="passwordLabel" layoutX="140.0" layoutY="336.0" promptText="hasło" />

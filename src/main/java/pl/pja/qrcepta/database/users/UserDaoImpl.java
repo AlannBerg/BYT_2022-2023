@@ -1,4 +1,4 @@
-package pl.pja.sem5.qrcepta.database.users;
+package pl.pja.qrcepta.database.users;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
