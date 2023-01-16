@@ -1,29 +1,20 @@
-package pl.pja.qrcepta.database.users;
-
-import static java.util.Objects.isNull;
+package pl.pja.qrcepta.database;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceUnit;
 import lombok.extern.slf4j.Slf4j;
+import pl.pja.qrcepta.model.entity.Patient;
 import pl.pja.qrcepta.model.entity.User;
 
 @Slf4j
-public class UserDaoImpl implements UserDao {
-
-//  @PersistenceUnit(name = "users-persistence-unit")
-//  private EntityManagerFactory entityManagerFactory;
+public class QrceptaDBConnectionImpl implements QrceptaDBConnection {
 
   private EntityManager getEntityManager() {
     EntityManagerFactory entityManagerFactory =
         Persistence.createEntityManagerFactory("users-persistence-unit");
     return entityManagerFactory.createEntityManager();
   }
-
-//    private EntityManager getEntityManager() {
-//    return entityManagerFactory.createEntityManager();
-//  }
 
   @Override
   public User getUserFromDatabase(String login, String hashedPassword) {
@@ -33,10 +24,10 @@ public class UserDaoImpl implements UserDao {
       User user =
           entityManager
               .createQuery(
-                  "select user from User user where user.login = :login and user.hashedPassword = : password",
+                  "select user from User user where user.login = :login and user.hashedPassword = :password",
                   User.class)
-              .setParameter(login, "login")
-              .setParameter(hashedPassword, "password")
+              .setParameter( "login",login)
+              .setParameter( "password",hashedPassword)
               .getSingleResult();
       return user;
     } catch (Exception e) {
@@ -45,5 +36,17 @@ public class UserDaoImpl implements UserDao {
     } finally {
       entityManager.close();
     }
+  }
+
+  @Override
+  public Patient getPatiendByPeselNo(String pesel) {
+    //todo
+    return null;
+  }
+
+  @Override
+  public Patient savePatient(Patient patient) {
+    //todo sprawdz czy zwraca id
+    return null;
   }
 }

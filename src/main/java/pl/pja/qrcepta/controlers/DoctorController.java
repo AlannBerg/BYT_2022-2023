@@ -2,8 +2,11 @@ package pl.pja.qrcepta.controlers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
+import pl.pja.qrcepta.utlis.SceneManager;
 
 @Slf4j
 public class DoctorController {
@@ -14,8 +17,13 @@ public class DoctorController {
   @FXML
   void LogOutAction(ActionEvent event) {
     log.info("LOGING OUT");
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    SceneManager.changeSceneToLoginScene(stage);
   }
 
   @FXML
-  void NewPatientAction(ActionEvent event) {}
+  void NewPatientAction(ActionEvent event) {
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    SceneManager.changeSceneToNewPatientScene(stage);
+  }
 }
