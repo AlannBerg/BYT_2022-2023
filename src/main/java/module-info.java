@@ -8,6 +8,7 @@ module pl.pja.qrcepta {
   requires java.sql;
   requires org.hibernate.orm.core;
   requires java.validation;
+  requires org.apache.commons.lang3;
 
   opens pl.pja.qrcepta to
       javafx.fxml;
@@ -16,6 +17,9 @@ module pl.pja.qrcepta {
   exports pl.pja.qrcepta.controlers;
   exports pl.pja.qrcepta.model.entity;
 
+  opens pl.pja.qrcepta.model.entity to
+      javafx.fxml,
+      org.hibernate.orm.core;
   opens pl.pja.qrcepta.controlers to
       javafx.fxml;
 
@@ -23,6 +27,4 @@ module pl.pja.qrcepta {
 
   opens pl.pja.qrcepta.utlis to
       javafx.fxml;
-
-  opens pl.pja.qrcepta.model.entity to org.hibernate.orm.core;
 }
