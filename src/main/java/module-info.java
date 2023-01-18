@@ -27,4 +27,16 @@ module pl.pja.qrcepta {
 
   opens pl.pja.qrcepta.utlis to
       javafx.fxml;
+
+  exports pl.pja.qrcepta.controlers.doctor;
+
+  opens pl.pja.qrcepta.controlers.doctor to
+      javafx.fxml;
+  opens pl.pja.qrcepta.controlers.admin to
+      javafx.fxml;
+
+  exports pl.pja.qrcepta.controlers.pharmacy;
+
+  opens pl.pja.qrcepta.controlers.pharmacy to
+      javafx.fxml;
 }

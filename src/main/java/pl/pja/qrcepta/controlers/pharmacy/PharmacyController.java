@@ -1,7 +1,7 @@
-package pl.pja.qrcepta.controlers;
+package pl.pja.qrcepta.controlers.pharmacy;
 
 import static java.util.Objects.isNull;
-import static pl.pja.qrcepta.utlis.SceneConstants.ERROR_MSG_SHOW_TIME_SECONDS;
+import static pl.pja.qrcepta.utlis.SceneConstants.MSG_SHOW_TIME_SECONDS;
 import static pl.pja.qrcepta.utlis.SceneConstants.PRESCRIPTION_NOT_FOUND_ERROR_MSG_TEXT;
 
 import javafx.animation.PauseTransition;
@@ -62,7 +62,7 @@ public class PharmacyController {
     log.error("Prescription not found");
     prescriptionID.clear();
     errorLabel.setText(PRESCRIPTION_NOT_FOUND_ERROR_MSG_TEXT);
-    PauseTransition pause = new PauseTransition(Duration.seconds(ERROR_MSG_SHOW_TIME_SECONDS));
+    PauseTransition pause = new PauseTransition(Duration.seconds(MSG_SHOW_TIME_SECONDS));
     pause.setOnFinished(e -> errorLabel.setText(null));
     pause.play();
   }

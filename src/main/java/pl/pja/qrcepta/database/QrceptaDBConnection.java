@@ -21,4 +21,10 @@ public interface QrceptaDBConnection {
 
   // todo
   Prescription getPrescription(String id, String securityCode);
+
+  User saveUser(User newUser);
+
+  User getByLoginAndName(String login, String name);
+
+  Boolean deleteUser(User userToDelete);
 }

@@ -39,19 +39,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pja.qrcepta.controlers.DoctorController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19"
+  xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="pl.pja.qrcepta.controlers.doctor.DoctorController">
   <children>
-    <MenuBar VBox.vgrow="NEVER" />
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="539.0" prefWidth="1200.0" style="-fx-background-color: #bbdefb;" VBox.vgrow="ALWAYS">
-         <children>
-            <Label alignment="CENTER" layoutX="177.0" layoutY="14.0" prefHeight="17.0" prefWidth="305.0" text="QRCEPTA" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <Button fx:id="NewPatientButton" layoutX="73.0" layoutY="286.0" mnemonicParsing="false" onAction="#NewPatientAction" prefHeight="58.0" prefWidth="183.0" text="Nowy pacjent" />
-            <Button fx:id="LogOutButton" layoutX="379.0" layoutY="286.0" mnemonicParsing="false" onAction="#LogOutAction" prefHeight="58.0" prefWidth="183.0" text="Wyloguj" />
-         </children>
+    <MenuBar VBox.vgrow="NEVER"/>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="539.0" prefWidth="1200.0"
+      style="-fx-background-color: #bbdefb;" VBox.vgrow="ALWAYS">
+      <children>
+        <Label alignment="CENTER" layoutX="177.0" layoutY="14.0" prefHeight="17.0" prefWidth="305.0"
+          text="QRCEPTA" textAlignment="CENTER" textFill="WHITE">
+          <font>
+            <Font size="40.0"/>
+          </font>
+        </Label>
+        <Button fx:id="NewPatientButton" layoutX="73.0" layoutY="286.0" mnemonicParsing="false"
+          onAction="#NewPatientAction" prefHeight="58.0" prefWidth="183.0" text="Nowy pacjent"/>
+        <Button fx:id="LogOutButton" layoutX="379.0" layoutY="286.0" mnemonicParsing="false"
+          onAction="#LogOutAction" prefHeight="58.0" prefWidth="183.0" text="Wyloguj"/>
+      </children>
     </AnchorPane>
   </children>
 </VBox>

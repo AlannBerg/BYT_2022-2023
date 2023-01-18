@@ -1,7 +1,7 @@
 package pl.pja.qrcepta.controlers;
 
 import static pl.pja.qrcepta.utlis.SceneConstants.ERROR_MSG_TEXT_CLEAR;
-import static pl.pja.qrcepta.utlis.SceneConstants.ERROR_MSG_SHOW_TIME_SECONDS;
+import static pl.pja.qrcepta.utlis.SceneConstants.MSG_SHOW_TIME_SECONDS;
 import static pl.pja.qrcepta.utlis.SceneConstants.LOG_IN_ERROR_MSG_TEXT;
 
 import javafx.animation.PauseTransition;
@@ -14,10 +14,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.codec.digest.DigestUtils;
 import pl.pja.qrcepta.model.UserType;
 import pl.pja.qrcepta.services.UserService;
 import pl.pja.qrcepta.services.implemention.UserServiceImpl;
+import pl.pja.qrcepta.utlis.PasswordUtils;
 import pl.pja.qrcepta.utlis.SceneManager;
 
 @Slf4j
@@ -37,7 +37,7 @@ public class LogInController {
   void logInAction(ActionEvent event) {
     log.info("Log in action");
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    String securePassword = DigestUtils.sha1Hex(passwordLabel.getText());
+    String securePassword = PasswordUtils.encryptPassword(passwordLabel.getText());
     UserType userType = userService.getUserRole(loginLabel.getText(), securePassword);
     try {
       switch (userType) {
@@ -62,7 +62,7 @@ public class LogInController {
     loginLabel.clear();
     passwordLabel.clear();
     loginErrorMsgField.setText(LOG_IN_ERROR_MSG_TEXT);
-    PauseTransition pause = new PauseTransition(Duration.seconds(ERROR_MSG_SHOW_TIME_SECONDS));
+    PauseTransition pause = new PauseTransition(Duration.seconds(MSG_SHOW_TIME_SECONDS));
     pause.setOnFinished(e -> loginErrorMsgField.setText(ERROR_MSG_TEXT_CLEAR));
     pause.play();
   }

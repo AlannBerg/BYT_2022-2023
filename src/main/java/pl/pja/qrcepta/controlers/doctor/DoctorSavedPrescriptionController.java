@@ -1,4 +1,4 @@
-package pl.pja.qrcepta.controlers;
+package pl.pja.qrcepta.controlers.doctor;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,7 +16,7 @@ import pl.pja.qrcepta.model.entity.Prescription;
 import pl.pja.qrcepta.utlis.SceneManager;
 
 @Slf4j
-public class SavedPrescriptionController implements Initializable {
+public class DoctorSavedPrescriptionController implements Initializable {
 
   @FXML private Button endButton;
 

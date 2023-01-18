@@ -25,19 +25,14 @@ public class QrceptaDBConnectionImpl implements QrceptaDBConnection {
     log.info("Getting user role form database for {}", login);
     EntityManager entityManager = getEntityManager();
     try {
-      Optional<User> optionalUser =
-          entityManager
-              .createNamedQuery("User.findByLoginAndPassword", User.class)
-              .setParameter("login", login)
-              .setParameter("password", hashedPassword)
-              .getResultList()
-              .stream()
-              .findFirst();
-      if (!optionalUser.isPresent()) {
-        log.debug("No user  {} find in database.", login);
-        return null;
-      }
-      return optionalUser.get();
+      return entityManager
+          .createNamedQuery("User.findByLoginAndPassword", User.class)
+          .setParameter("login", login)
+          .setParameter("password", hashedPassword)
+          .getResultList()
+          .stream()
+          .findFirst()
+          .orElse(null);
     } catch (Exception e) {
       log.error("Can not get user {} from database {}", login, e.getMessage());
       return null;
@@ -51,18 +46,13 @@ public class QrceptaDBConnectionImpl implements QrceptaDBConnection {
     log.info("Geting patient with pesel {} from database", pesel);
     EntityManager entityManager = getEntityManager();
     try {
-      Optional<Patient> optionalPatient =
-          entityManager
-              .createNamedQuery("Patient.findByPesel", Patient.class)
-              .setParameter("pesel", pesel)
-              .getResultList()
-              .stream()
-              .findFirst();
-      if (!optionalPatient.isPresent()) {
-        log.debug("No patient found in database.");
-        return null;
-      }
-      return optionalPatient.get();
+      return entityManager
+          .createNamedQuery("Patient.findByPesel", Patient.class)
+          .setParameter("pesel", pesel)
+          .getResultList()
+          .stream()
+          .findFirst()
+          .orElse(null);
     } catch (Exception e) {
       log.error("Can not get patient from database {}", e.getMessage());
       return null;
@@ -133,22 +123,17 @@ public class QrceptaDBConnectionImpl implements QrceptaDBConnection {
   }
 
   @Override
-  public Prescription getPrescription(Long id) {
+  public Prescription getPrescription(@NotNull Long id) {
     log.info("Geting prescritpion for id {}", id);
     EntityManager entityManager = getEntityManager();
     try {
-      Optional<Prescription> optionalPrescription =
-          entityManager
-              .createNamedQuery("Prescription.getByID", Prescription.class)
-              .setParameter("id", id)
-              .getResultList()
-              .stream()
-              .findFirst();
-      if (!optionalPrescription.isPresent()) {
-        log.debug("Prescritpion for id {} not found ", id);
-        return null;
-      }
-      return optionalPrescription.get();
+      return entityManager
+          .createNamedQuery("Prescription.getByID", Prescription.class)
+          .setParameter("id", id)
+          .getResultList()
+          .stream()
+          .findFirst()
+          .orElse(null);
     } catch (Exception e) {
       log.error("Can not find prescritpion for {} {}", id, e.getMessage());
       return null;
@@ -162,22 +147,82 @@ public class QrceptaDBConnectionImpl implements QrceptaDBConnection {
     log.info("Geting prescritpion for id {}", id);
     EntityManager entityManager = getEntityManager();
     try {
-      Optional<Prescription> optionalPrescription =
-          entityManager
-              .createNamedQuery("Prescription.getByIDandSecurityCode", Prescription.class)
-              .setParameter("id", id)
-              .setParameter("securityCode", securityCode)
-              .getResultList()
-              .stream()
-              .findFirst();
-      if (!optionalPrescription.isPresent()) {
-        log.debug("Prescritpion for id {} not found ", id);
-        return null;
-      }
-      return optionalPrescription.get();
+      return entityManager
+          .createNamedQuery("Prescription.getByIDandSecurityCode", Prescription.class)
+          .setParameter("id", id)
+          .setParameter("securityCode", securityCode)
+          .getResultList()
+          .stream()
+          .findFirst()
+          .orElse(null);
     } catch (Exception e) {
       log.error("Can not find prescritpion for {} {}", id, e.getMessage());
       return null;
+    } finally {
+      entityManager.close();
+    }
+  }
+
+  @Override
+  public User saveUser(@NotNull User newUser) {
+    EntityManager entityManager = getEntityManager();
+    EntityTransaction transaction = entityManager.getTransaction();
+    try {
+      transaction.begin();
+      entityManager.persist(newUser);
+      transaction.commit();
+      return newUser;
+    } catch (Exception e) {
+      transaction.rollback();
+      log.error("Can not save new user {}", e.getMessage());
+      return null;
+    } finally {
+      entityManager.close();
+    }
+  }
+
+  @Override
+  public User getByLoginAndName(@NotNull String login, @NotNull String name) {
+    EntityManager entityManager = getEntityManager();
+    try {
+      return entityManager
+          .createNamedQuery("User.findByLoginAndName", User.class)
+          .setParameter("login", login)
+          .setParameter("name", name)
+          .getResultList()
+          .stream()
+          .findFirst()
+          .orElse(null);
+    } catch (Exception e) {
+      log.error("Can not get user by login and name {}", e.getMessage());
+      return null;
+    } finally {
+      entityManager.close();
+    }
+  }
+
+  @Override
+  public Boolean deleteUser(@NotNull User userToDelete) {
+    EntityManager entityManager = getEntityManager();
+    EntityTransaction transaction = entityManager.getTransaction();
+    try {
+      transaction.begin();
+      User userFromDB =
+          entityManager
+              .createNamedQuery("User.findByLoginAndName", User.class)
+              .setParameter("login", userToDelete.getLogin())
+              .setParameter("name", userToDelete.getUserName())
+              .getResultList()
+              .stream()
+              .findFirst()
+              .orElse(null);
+      entityManager.remove(userFromDB);
+      transaction.commit();
+      return true;
+    } catch (Exception e) {
+      transaction.rollback();
+      log.error("Can not save new user {}", e.getMessage());
+      return false;
     } finally {
       entityManager.close();
     }

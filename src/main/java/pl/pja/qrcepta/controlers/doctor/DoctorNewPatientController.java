@@ -1,4 +1,4 @@
-package pl.pja.qrcepta.controlers;
+package pl.pja.qrcepta.controlers.doctor;
 
 import static java.util.Objects.isNull;
 import static pl.pja.qrcepta.validator.PeselValidator.isPeselValid;
@@ -21,7 +21,7 @@ import pl.pja.qrcepta.services.implemention.SecurityCodeGeneratorImpl;
 import pl.pja.qrcepta.utlis.SceneManager;
 
 @Slf4j
-public class NewPatientController {
+public class DoctorNewPatientController {
 
   private PatientService patientService = new PatientServiceImpl();
   private PrescriptionService prescriptionService = new PrescriptionServiceImpl();
