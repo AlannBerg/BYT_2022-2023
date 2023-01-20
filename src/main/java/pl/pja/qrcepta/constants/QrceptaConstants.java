@@ -41,5 +41,5 @@ public class QrceptaConstants {
   public static final Paint ERROR_MSG_COLOR = Paint.valueOf("Red");
 
   public static final String CHOOSE_QR_FILE_WINDOW_TITLE = "Wybierz kod QR.";
-  public static final String PATIENT_ROLE_NAME = "PATIENT";
+  public static final String QR_CODE_DATA_JOINER = "=";
 }

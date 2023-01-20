@@ -21,6 +21,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.Type;
 
 @Data
 @Entity
@@ -37,9 +38,9 @@ import lombok.ToString;
       name = "Prescription.getByID",
       query = "select prescription from Prescription prescription where prescription.id = :id"),
   @NamedQuery(
-      name = "Prescription.getByIDandSecurityCode",
+      name = "Prescription.getByPatientIDandSecurityCode",
       query =
-          "select prescription from Prescription prescription where prescription.id = :id and prescription.securityCode = :securityCode")
+          "select prescription from Prescription prescription where prescription.patient.id = :patientID and prescription.securityCode = :securityCode")
 })
 @Table(name = "prescriptions")
 public class Prescription {
@@ -63,10 +64,11 @@ public class Prescription {
   @Column(name = "security_code")
   private String securityCode;
 
-  //  @Lob
+  @Lob
   //  @NotNull
-  //  @Column(name = "qr_code_img")
-  //  private byte[] qr_code;
+  @Type(type = "org.hibernate.type.BinaryType")
+  @Column(name = "qr_code_img")
+  private byte[] qr_code;
 
   @NotNull
   @Enumerated(EnumType.STRING)

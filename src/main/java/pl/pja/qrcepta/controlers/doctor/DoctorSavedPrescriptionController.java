@@ -27,15 +27,12 @@ public class DoctorSavedPrescriptionController implements Initializable {
   @FXML private TextArea prescriptionData;
 
   DataSingleton prescriptionDataSingleton = DataSingleton.getInstance();
-  QrCodeService qrGenerator = new QrCodeServiceImpl();
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     // todo dokoncz jakos ladnie
     Prescription savedPrescription = prescriptionDataSingleton.getPrescription();
     // todo generowanie kodu qr id i security
-    qrGenerator.generateQrPrescription(
-        savedPrescription.getId(), savedPrescription.getSecurityCode());
     Patient savedPatient = savedPrescription.getPatient();
     patientData.setText(savedPatient.toString());
     prescriptionData.setText(savedPrescription.toString());

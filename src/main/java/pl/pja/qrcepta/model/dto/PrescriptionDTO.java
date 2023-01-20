@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PrescriptionDTO {
-  @NotNull private Long prescriptionID;
+  @NotNull private Long patientID;
   @NotNull private String securityCode;
 }

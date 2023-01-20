@@ -143,20 +143,20 @@ public class QrceptaDBConnectionImpl implements QrceptaDBConnection {
   }
 
   @Override
-  public Prescription getPrescription(@NotNull Long id, @NotNull String securityCode) {
-    log.info("Geting prescritpion for id {}", id);
+  public Prescription getPrescription(@NotNull Long patientID, @NotNull String securityCode) {
+    log.info("Geting prescritpion for patientID {}", patientID);
     EntityManager entityManager = getEntityManager();
     try {
       return entityManager
-          .createNamedQuery("Prescription.getByIDandSecurityCode", Prescription.class)
-          .setParameter("id", id)
+          .createNamedQuery("Prescription.getByPatientIDandSecurityCode", Prescription.class)
+          .setParameter("patientID", patientID)
           .setParameter("securityCode", securityCode)
           .getResultList()
           .stream()
           .findFirst()
           .orElse(null);
     } catch (Exception e) {
-      log.error("Can not find prescritpion for {} {}", id, e.getMessage());
+      log.error("Can not find prescritpion for {} {}", patientID, e.getMessage());
       return null;
     } finally {
       entityManager.close();

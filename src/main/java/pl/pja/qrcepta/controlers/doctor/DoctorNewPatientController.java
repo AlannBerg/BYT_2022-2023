@@ -15,9 +15,11 @@ import pl.pja.qrcepta.model.entity.Prescription;
 import pl.pja.qrcepta.model.entity.PrescriptionStatus;
 import pl.pja.qrcepta.services.PatientService;
 import pl.pja.qrcepta.services.PrescriptionService;
+import pl.pja.qrcepta.services.QrCodeService;
 import pl.pja.qrcepta.services.SecurityCodeGenerator;
 import pl.pja.qrcepta.services.implemention.PatientServiceImpl;
 import pl.pja.qrcepta.services.implemention.PrescriptionServiceImpl;
+import pl.pja.qrcepta.services.implemention.QrCodeServiceImpl;
 import pl.pja.qrcepta.services.implemention.SecurityCodeGeneratorImpl;
 import pl.pja.qrcepta.utlis.SceneManager;
 
@@ -41,6 +43,7 @@ public class DoctorNewPatientController {
 
   private DataSingleton prescriptionDataSingleton = DataSingleton.getInstance();
   private SecurityCodeGenerator securityCodeGenerator = new SecurityCodeGeneratorImpl();
+  QrCodeService qrGenerator = new QrCodeServiceImpl();
 
   @FXML
   void setPrescription(ActionEvent event) {
@@ -68,6 +71,8 @@ public class DoctorNewPatientController {
             .status(PrescriptionStatus.CREATED)
             .build();
 
+    byte[] qrCodeByteArr = qrGenerator.generateQrPrescription(prescription);
+    prescription.setQr_code(qrCodeByteArr);
     prescription = prescriptionService.saveNewPrescription(prescription);
     log.debug("Saved prescription {} for patient {}", prescription, patient);
     prescriptionDataSingleton.setPrescription(prescription);

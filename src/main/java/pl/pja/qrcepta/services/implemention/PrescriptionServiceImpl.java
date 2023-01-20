@@ -49,19 +49,19 @@ public class PrescriptionServiceImpl implements PrescriptionService {
     return prescription;
   }
 
-    @Override
-    public Prescription getPrescription(String id, String securityCode) {
-//      log.info("Geting prescription for id {}", id);
-//      Prescription prescription = qrceptaDBConnection.getPrescription(id, securityCode);
-//      if (isNull(prescription)) {
-//        log.error("Can not find prescription for id {}", id);
-//        return null;
-//      }
-//      log.debug("Prescritpion found for id {} : {}", id, prescription);
-//      return prescription;
-//
-      return null;
-    }
+  @Override
+  public Prescription getPrescription(String id, String securityCode) {
+    //      log.info("Geting prescription for id {}", id);
+    //      Prescription prescription = qrceptaDBConnection.getPrescription(id, securityCode);
+    //      if (isNull(prescription)) {
+    //        log.error("Can not find prescription for id {}", id);
+    //        return null;
+    //      }
+    //      log.debug("Prescritpion found for id {} : {}", id, prescription);
+    //      return prescription;
+    //
+    return null;
+  }
 
   @Override
   public Prescription getPrescriptionFromQrCode(@NotNull File file) {
@@ -69,7 +69,7 @@ public class PrescriptionServiceImpl implements PrescriptionService {
     PrescriptionDTO prescriptionDTO = qrCodeService.getPrescriptionDtoFromQRCode(file);
     Prescription prescription =
         qrceptaDBConnection.getPrescription(
-            prescriptionDTO.getPrescriptionID(), prescriptionDTO.getSecurityCode());
+            prescriptionDTO.getPatientID(), prescriptionDTO.getSecurityCode());
     if (isNull(prescription)) {
       log.error("Can not find prescription for QR Code");
       return null;
