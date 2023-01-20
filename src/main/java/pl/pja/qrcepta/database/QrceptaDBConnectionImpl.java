@@ -143,7 +143,7 @@ public class QrceptaDBConnectionImpl implements QrceptaDBConnection {
   }
 
   @Override
-  public Prescription getPrescription(@NotNull String id, @NotNull String securityCode) {
+  public Prescription getPrescription(@NotNull Long id, @NotNull String securityCode) {
     log.info("Geting prescritpion for id {}", id);
     EntityManager entityManager = getEntityManager();
     try {

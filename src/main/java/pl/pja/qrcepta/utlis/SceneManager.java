@@ -1,20 +1,20 @@
 package pl.pja.qrcepta.utlis;
 
-import static pl.pja.qrcepta.utlis.SceneConstants.ADMIN_SCENE_NAME;
-import static pl.pja.qrcepta.utlis.SceneConstants.ADMIN_SCENE_TITLE;
-import static pl.pja.qrcepta.utlis.SceneConstants.DOCTOR_SCENE_NAME;
-import static pl.pja.qrcepta.utlis.SceneConstants.DOCTOR_SCENE_TITLE;
-import static pl.pja.qrcepta.utlis.SceneConstants.LOG_IN_SCENE_NAME;
-import static pl.pja.qrcepta.utlis.SceneConstants.LOG_IN_STAGE_HEIGHT;
-import static pl.pja.qrcepta.utlis.SceneConstants.LOG_IN_TITLE;
-import static pl.pja.qrcepta.utlis.SceneConstants.LOG_IN_STAGE_WIDTH;
-import static pl.pja.qrcepta.utlis.SceneConstants.DOCTOR_NEW_PATIENT_SCENE;
-import static pl.pja.qrcepta.utlis.SceneConstants.DOCTOR_NEW_PATIENT_TITLE;
-import static pl.pja.qrcepta.utlis.SceneConstants.PHARMACY_RETURN_PRESCRIPTION_SCENE_NAME;
-import static pl.pja.qrcepta.utlis.SceneConstants.PHARMACY_SCENE_NAME;
-import static pl.pja.qrcepta.utlis.SceneConstants.PHARMACY_SCENE_TITLE;
-import static pl.pja.qrcepta.utlis.SceneConstants.DOCTOR_SAVED_PRESCRIPTION_SCENE;
-import static pl.pja.qrcepta.utlis.SceneConstants.DOCTOR_SAVED_PRESCRIPTION_TITLE;
+import static pl.pja.qrcepta.constants.QrceptaConstants.ADMIN_SCENE_NAME;
+import static pl.pja.qrcepta.constants.QrceptaConstants.ADMIN_SCENE_TITLE;
+import static pl.pja.qrcepta.constants.QrceptaConstants.DOCTOR_SCENE_NAME;
+import static pl.pja.qrcepta.constants.QrceptaConstants.DOCTOR_SCENE_TITLE;
+import static pl.pja.qrcepta.constants.QrceptaConstants.LOG_IN_SCENE_NAME;
+import static pl.pja.qrcepta.constants.QrceptaConstants.LOG_IN_STAGE_HEIGHT;
+import static pl.pja.qrcepta.constants.QrceptaConstants.LOG_IN_TITLE;
+import static pl.pja.qrcepta.constants.QrceptaConstants.LOG_IN_STAGE_WIDTH;
+import static pl.pja.qrcepta.constants.QrceptaConstants.DOCTOR_NEW_PATIENT_SCENE;
+import static pl.pja.qrcepta.constants.QrceptaConstants.DOCTOR_NEW_PATIENT_TITLE;
+import static pl.pja.qrcepta.constants.QrceptaConstants.PHARMACY_RETURN_PRESCRIPTION_SCENE_NAME;
+import static pl.pja.qrcepta.constants.QrceptaConstants.PHARMACY_SCENE_NAME;
+import static pl.pja.qrcepta.constants.QrceptaConstants.PHARMACY_SCENE_TITLE;
+import static pl.pja.qrcepta.constants.QrceptaConstants.DOCTOR_SAVED_PRESCRIPTION_SCENE;
+import static pl.pja.qrcepta.constants.QrceptaConstants.DOCTOR_SAVED_PRESCRIPTION_TITLE;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

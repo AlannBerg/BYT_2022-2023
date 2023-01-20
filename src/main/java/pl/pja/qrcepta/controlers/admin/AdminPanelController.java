@@ -2,14 +2,14 @@ package pl.pja.qrcepta.controlers.admin;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
-import static pl.pja.qrcepta.utlis.SceneConstants.DELETE_USER_ERROR_MSG;
-import static pl.pja.qrcepta.utlis.SceneConstants.DELETE_USER_SUCCESS_MSG;
-import static pl.pja.qrcepta.utlis.SceneConstants.ERROR_MSG_COLOR;
-import static pl.pja.qrcepta.utlis.SceneConstants.FILL_ALL_LABELS_ERROR;
-import static pl.pja.qrcepta.utlis.SceneConstants.MSG_SHOW_TIME_SECONDS;
-import static pl.pja.qrcepta.utlis.SceneConstants.NEW_USER_SAVED_ERROR_MSG;
-import static pl.pja.qrcepta.utlis.SceneConstants.NEW_USER_SAVED_SUCCESS_MSG;
-import static pl.pja.qrcepta.utlis.SceneConstants.SUCCES_MSG_COLOR;
+import static pl.pja.qrcepta.constants.QrceptaConstants.DELETE_USER_ERROR_MSG;
+import static pl.pja.qrcepta.constants.QrceptaConstants.DELETE_USER_SUCCESS_MSG;
+import static pl.pja.qrcepta.constants.QrceptaConstants.ERROR_MSG_COLOR;
+import static pl.pja.qrcepta.constants.QrceptaConstants.FILL_ALL_LABELS_ERROR;
+import static pl.pja.qrcepta.constants.QrceptaConstants.MSG_SHOW_TIME_SECONDS;
+import static pl.pja.qrcepta.constants.QrceptaConstants.NEW_USER_SAVED_ERROR_MSG;
+import static pl.pja.qrcepta.constants.QrceptaConstants.NEW_USER_SAVED_SUCCESS_MSG;
+import static pl.pja.qrcepta.constants.QrceptaConstants.SUCCESS_MSG_COLOR;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.PauseTransition;
@@ -25,7 +25,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import lombok.extern.slf4j.Slf4j;
-import pl.pja.qrcepta.model.UserType;
+import pl.pja.qrcepta.model.entity.UserType;
 import pl.pja.qrcepta.model.entity.User;
 import pl.pja.qrcepta.services.UserService;
 import pl.pja.qrcepta.services.implemention.UserServiceImpl;
@@ -175,7 +175,7 @@ public class AdminPanelController implements Initializable {
     pause.setOnFinished(
         e -> {
           addUserMsgLabel.setText(msg);
-          addUserMsgLabel.setTextFill(SUCCES_MSG_COLOR);
+          addUserMsgLabel.setTextFill(SUCCESS_MSG_COLOR);
         });
     pause.play();
   }
@@ -195,7 +195,7 @@ public class AdminPanelController implements Initializable {
     pause.setOnFinished(
         e -> {
           deletingUserMsgLabel.setText(msg);
-          deletingUserMsgLabel.setTextFill(SUCCES_MSG_COLOR);
+          deletingUserMsgLabel.setTextFill(SUCCESS_MSG_COLOR);
         });
     pause.play();
   }

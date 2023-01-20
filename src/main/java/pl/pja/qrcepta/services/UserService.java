@@ -1,6 +1,6 @@
 package pl.pja.qrcepta.services;
 
-import pl.pja.qrcepta.model.UserType;
+import pl.pja.qrcepta.model.entity.UserType;
 import pl.pja.qrcepta.model.entity.User;
 
 public interface UserService {

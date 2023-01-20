@@ -1,9 +1,9 @@
 package pl.pja.qrcepta.services.implemention;
 
-import static pl.pja.qrcepta.utlis.SceneConstants.SECURITY_CODE_LENGTH;
-import static pl.pja.qrcepta.utlis.SceneConstants.SECURITY_CODE_USE_LETTERS;
-import static pl.pja.qrcepta.utlis.SceneConstants.SECURITY_CODE_USE_NUMBERS;
-import static pl.pja.qrcepta.utlis.SceneConstants.SECURITY_TEXT_TO_GENERATE_NEW_ONE;
+import static pl.pja.qrcepta.constants.QrceptaConstants.SECURITY_CODE_LENGTH;
+import static pl.pja.qrcepta.constants.QrceptaConstants.SECURITY_CODE_USE_LETTERS;
+import static pl.pja.qrcepta.constants.QrceptaConstants.SECURITY_CODE_USE_NUMBERS;
+import static pl.pja.qrcepta.constants.QrceptaConstants.SECURITY_TEXT_TO_GENERATE_NEW_ONE;
 
 import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;

@@ -1,8 +1,8 @@
 package pl.pja.qrcepta.controlers;
 
-import static pl.pja.qrcepta.utlis.SceneConstants.ERROR_MSG_TEXT_CLEAR;
-import static pl.pja.qrcepta.utlis.SceneConstants.MSG_SHOW_TIME_SECONDS;
-import static pl.pja.qrcepta.utlis.SceneConstants.LOG_IN_ERROR_MSG_TEXT;
+import static pl.pja.qrcepta.constants.QrceptaConstants.ERROR_MSG_TEXT_CLEAR;
+import static pl.pja.qrcepta.constants.QrceptaConstants.MSG_SHOW_TIME_SECONDS;
+import static pl.pja.qrcepta.constants.QrceptaConstants.LOG_IN_ERROR_MSG_TEXT;
 
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
@@ -14,7 +14,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import lombok.extern.slf4j.Slf4j;
-import pl.pja.qrcepta.model.UserType;
+import pl.pja.qrcepta.model.entity.UserType;
 import pl.pja.qrcepta.services.UserService;
 import pl.pja.qrcepta.services.implemention.UserServiceImpl;
 import pl.pja.qrcepta.utlis.PasswordUtils;

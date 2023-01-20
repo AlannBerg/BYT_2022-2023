@@ -39,6 +39,12 @@
       <scope>test</scope>
     </dependency>
 
+    <!--    <dependency>-->
+    <!--      <groupId>mysql</groupId>-->
+    <!--      <artifactId>mysql-connector-java</artifactId>-->
+    <!--      <version>8.0.32</version>-->
+    <!--    </dependency>-->
+
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
@@ -99,6 +105,19 @@
       <artifactId>commons-lang3</artifactId>
       <version>3.12.0</version>
     </dependency>
+
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>core</artifactId>
+      <version>3.4.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>javase</artifactId>
+      <version>3.4.1</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -154,7 +173,7 @@
       <plugin>
         <groupId>org.liquibase</groupId>
         <artifactId>liquibase-maven-plugin</artifactId>
-        <version>4.17.0</version>
+        <version>4.18.0</version>
         <configuration>
           <propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
           <changeLogFile>src/main/resources/liquibase/db.changelog-master.xml</changeLogFile>

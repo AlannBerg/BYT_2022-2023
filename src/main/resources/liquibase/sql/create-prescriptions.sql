@@ -8,6 +8,8 @@ CREATE TABLE public.prescriptions
     recommendation  varchar(255) NOT NULL,
     medicines       varchar(255) NOT NULL,
     security_code   varchar(255) NOT NULL,
+    status          varchar(30)  NOT NULL,
+    qr_code_img     bytea        NOT NULL,
     CONSTRAINT patient_fk FOREIGN KEY (patient_id) REFERENCES patient (patient_id),
     CONSTRAINT security_code_prescriptions_id_unique UNIQUE (prescription_id, security_code)
 );

@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import pl.pja.qrcepta.database.QrceptaDBConnection;
 import pl.pja.qrcepta.database.QrceptaDBConnectionImpl;
-import pl.pja.qrcepta.model.UserType;
+import pl.pja.qrcepta.model.entity.UserType;
 import pl.pja.qrcepta.model.entity.User;
 import pl.pja.qrcepta.services.UserService;
 

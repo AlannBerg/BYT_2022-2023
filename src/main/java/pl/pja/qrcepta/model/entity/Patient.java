@@ -1,5 +1,6 @@
 package pl.pja.qrcepta.model.entity;
 
+import java.time.ZonedDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

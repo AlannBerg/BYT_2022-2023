@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import pl.pja.qrcepta.dataConnection.DataSingleton;
 import pl.pja.qrcepta.model.entity.Patient;
 import pl.pja.qrcepta.model.entity.Prescription;
+import pl.pja.qrcepta.model.entity.PrescriptionStatus;
 import pl.pja.qrcepta.services.PatientService;
 import pl.pja.qrcepta.services.PrescriptionService;
 import pl.pja.qrcepta.services.SecurityCodeGenerator;
@@ -64,6 +65,7 @@ public class DoctorNewPatientController {
             .medicines(medicines.getText())
             .patient(patient)
             .securityCode(securityCodeGenerator.generateSecurityCode())
+            .status(PrescriptionStatus.CREATED)
             .build();
 
     prescription = prescriptionService.saveNewPrescription(prescription);

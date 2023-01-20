@@ -20,7 +20,7 @@ public interface QrceptaDBConnection {
   Prescription getPrescription(Long id);
 
   // todo
-  Prescription getPrescription(String id, String securityCode);
+  Prescription getPrescription(Long id, String securityCode);
 
   User saveUser(User newUser);
 

@@ -9,6 +9,9 @@ module pl.pja.qrcepta {
   requires org.hibernate.orm.core;
   requires java.validation;
   requires org.apache.commons.lang3;
+  requires com.google.zxing.javase;
+  requires com.google.zxing;
+  requires java.desktop;
 
   opens pl.pja.qrcepta to
       javafx.fxml;
@@ -38,5 +41,10 @@ module pl.pja.qrcepta {
   exports pl.pja.qrcepta.controlers.pharmacy;
 
   opens pl.pja.qrcepta.controlers.pharmacy to
+      javafx.fxml;
+
+  exports pl.pja.qrcepta.constants;
+
+  opens pl.pja.qrcepta.constants to
       javafx.fxml;
 }

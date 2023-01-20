@@ -13,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import pl.pja.qrcepta.dataConnection.DataSingleton;
 import pl.pja.qrcepta.model.entity.Patient;
 import pl.pja.qrcepta.model.entity.Prescription;
+import pl.pja.qrcepta.services.QrCodeService;
+import pl.pja.qrcepta.services.implemention.QrCodeServiceImpl;
 import pl.pja.qrcepta.utlis.SceneManager;
 
 @Slf4j
@@ -25,11 +27,15 @@ public class DoctorSavedPrescriptionController implements Initializable {
   @FXML private TextArea prescriptionData;
 
   DataSingleton prescriptionDataSingleton = DataSingleton.getInstance();
+  QrCodeService qrGenerator = new QrCodeServiceImpl();
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     // todo dokoncz jakos ladnie
     Prescription savedPrescription = prescriptionDataSingleton.getPrescription();
+    // todo generowanie kodu qr id i security
+    qrGenerator.generateQrPrescription(
+        savedPrescription.getId(), savedPrescription.getSecurityCode());
     Patient savedPatient = savedPrescription.getPatient();
     patientData.setText(savedPatient.toString());
     prescriptionData.setText(savedPrescription.toString());
