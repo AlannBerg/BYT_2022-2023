@@ -5,8 +5,7 @@ import static java.util.Objects.isNull;
 import java.io.File;
 import javax.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
-import pl.pja.qrcepta.database.QrceptaDBConnection;
-import pl.pja.qrcepta.database.QrceptaDBConnectionImpl;
+import pl.pja.qrcepta.database.PrescriptionRepository;
 import pl.pja.qrcepta.exceptions.DatabaseSaveException;
 import pl.pja.qrcepta.model.dto.PrescriptionDTO;
 import pl.pja.qrcepta.model.entity.Prescription;
@@ -15,13 +14,13 @@ import pl.pja.qrcepta.services.QrCodeService;
 
 @Slf4j
 public class PrescriptionServiceImpl implements PrescriptionService {
-  private QrceptaDBConnection qrceptaDBConnection = new QrceptaDBConnectionImpl();
+  private PrescriptionRepository prescriptionRepository = new PrescriptionRepository();
   private QrCodeService qrCodeService = new QrCodeServiceImpl();
 
   @Override
   public Prescription saveNewPrescription(@NotNull Prescription prescription) {
     log.info("Saving prescription");
-    Prescription savedPrescription = qrceptaDBConnection.savePrescription(prescription);
+    Prescription savedPrescription = prescriptionRepository.savePrescription(prescription);
     if (isNull(savedPrescription)) {
       log.error("Can not save prescription {}", prescription);
       throw new DatabaseSaveException("Can not save prescritpion");
@@ -40,7 +39,7 @@ public class PrescriptionServiceImpl implements PrescriptionService {
       return null;
     }
 
-    Prescription prescription = qrceptaDBConnection.getPrescription(idLong);
+    Prescription prescription = prescriptionRepository.getPrescription(idLong);
     if (isNull(prescription)) {
       log.error("Can not find prescription for id {}", id);
       return null;
@@ -68,7 +67,7 @@ public class PrescriptionServiceImpl implements PrescriptionService {
     log.info("Geting prescription via qr code");
     PrescriptionDTO prescriptionDTO = qrCodeService.getPrescriptionDtoFromQRCode(file);
     Prescription prescription =
-        qrceptaDBConnection.getPrescription(
+        prescriptionRepository.getPrescription(
             prescriptionDTO.getPatientID(), prescriptionDTO.getSecurityCode());
     if (isNull(prescription)) {
       log.error("Can not find prescription for QR Code");

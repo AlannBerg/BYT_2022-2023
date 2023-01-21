@@ -78,4 +78,8 @@ public class Prescription {
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "patient_id")
   private Patient patient;
+
+  //  @ManyToOne(fetch = FetchType.EAGER)
+  //  @JoinColumn(name = "patient_id")
+  //  private Patient patient;
 }

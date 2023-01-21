@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="qrcepta_db@localhost" uuid="ef461682-4550-4246-8c77-0f9defe5974b">
+    <data-source source="LOCAL" name="qrcepta_db@localhost" uuid="755b3776-d262-4243-b9a8-96cd3b081761">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

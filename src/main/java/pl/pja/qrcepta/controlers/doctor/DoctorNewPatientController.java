@@ -13,6 +13,7 @@ import pl.pja.qrcepta.dataConnection.DataSingleton;
 import pl.pja.qrcepta.model.entity.Patient;
 import pl.pja.qrcepta.model.entity.Prescription;
 import pl.pja.qrcepta.model.entity.PrescriptionStatus;
+import pl.pja.qrcepta.model.entity.UserType;
 import pl.pja.qrcepta.services.PatientService;
 import pl.pja.qrcepta.services.PrescriptionService;
 import pl.pja.qrcepta.services.QrCodeService;
@@ -60,6 +61,7 @@ public class DoctorNewPatientController {
                   .name(patientName.getText())
                   .lastname(patientLastName.getText())
                   .peselNo(peselNo.getText())
+                  .role(UserType.PATIENT)
                   .build());
     }
     Prescription prescription =

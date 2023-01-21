@@ -9,6 +9,7 @@ public enum UserType {
   DOCTOR("DOCTOR"),
   PHARMACIST("PHARMACIST"),
   ADMIN("ADMIN"),
+  PATIENT("PATIENT"),
   NOT_EXIST("NOT_EXIST");
 
   private final String name;

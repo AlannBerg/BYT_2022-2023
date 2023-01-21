@@ -21,7 +21,6 @@ pl\pja\qrcepta\model\dto\UserDTO.class
 pl\pja\qrcepta\model\dto\PatientDTO.class
 pl\pja\qrcepta\services\implemention\QrCodeServiceImpl.class
 pl\pja\qrcepta\exceptions\DatabaseSaveException.class
-pl\pja\qrcepta\model\UserType.class
 pl\pja\qrcepta\controlers\admin\AdminPanelController.class
 pl\pja\qrcepta\controlers\LogInController$1.class
 pl\pja\qrcepta\validator\PeselValidator.class

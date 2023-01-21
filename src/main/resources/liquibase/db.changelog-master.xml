@@ -6,6 +6,7 @@
       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
   <include file="src/main/resources/liquibase/sql/create-table-users.sql"/>
   <include file="src/main/resources/liquibase/sql/add-admins-to-users.sql"/>
-  <include file="src/main/resources/liquibase/sql/create-patient.sql"/>
+  <!--  <include file="src/main/resources/liquibase/sql/create-patient.sql"/>-->
+  <include file="/src/main/resources/liquibase/sql/adrian-create-users.sql"/>
   <include file="/src/main/resources/liquibase/sql/create-prescriptions.sql"/>
 </databaseChangeLog>
