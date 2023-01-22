@@ -3,6 +3,11 @@ package pl.pja.qrcepta.constants;
 import javafx.scene.paint.Paint;
 
 public class QrceptaConstants {
+  public static final String DB_CONFIG_PROPERTY_NAME = "db.properties.path";
+  public static final String PATH_TO_SETTINGS_FILE = "./settings.xml";
+
+  public static final String PERSISTENCE_NAME = "qrcepta-persistence-unit";
+
   public static final String LOG_IN_TITLE = "QRCEPTA LOGOWANIE";
   public static final String LOG_IN_SCENE_NAME = "logowanie.fxml";
   public static final String FORGOT_PASSWORD_TITLE = "QRCEPTA ODZYSIWANIE HASLA";

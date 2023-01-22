@@ -13,6 +13,7 @@ C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\model\entity\UserType.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\module-info.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\validator\PeselValidator.java
+C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\controlers\pharmacy\ControllerPharmacyOne.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\exceptions\DatabaseSaveException.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\dataConnection\UserDataSingleton.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\services\SecurityCodeGenerator.java
@@ -28,14 +29,13 @@ C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\controlers\LogInController.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\model\dto\PatientDTO.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\model\dto\UserDTO.java
+C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\controlers\LogInControllerTwo.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\model\entity\PrescriptionStatus.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\services\implemention\QrCodeServiceImpl.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\services\implemention\SecurityCodeGeneratorImpl.java
-C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\controlers\pharmacy\PharmacySavedPrescriptionController.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\model\entity\Prescription.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\services\implemention\PatientServiceImpl.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\database\UserRepository.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\QRceptaApplication.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\utlis\PrescriptionUtils.java
 C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\controlers\doctor\DoctorControllerTwo.java
-C:\Users\Alan\Desktop\Projekt studia\Qrcepta\BYT_2022-2023\src\main\java\pl\pja\qrcepta\controlers\pharmacy\PharmacyController.java

@@ -13,9 +13,7 @@ pl\pja\qrcepta\utlis\PasswordUtils.class
 pl\pja\qrcepta\services\QrCodeService.class
 pl\pja\qrcepta\services\implemention\UserServiceImpl.class
 pl\pja\qrcepta\controlers\doctor\DoctorController.class
-pl\pja\qrcepta\controlers\pharmacy\PharmacySavedPrescriptionController.class
 pl\pja\qrcepta\database\QrceptaDBConnectionImpl.class
-pl\pja\qrcepta\controlers\pharmacy\PharmacyController.class
 pl\pja\qrcepta\model\dto\UserDTO.class
 pl\pja\qrcepta\model\dto\PatientDTO.class
 pl\pja\qrcepta\services\implemention\QrCodeServiceImpl.class
