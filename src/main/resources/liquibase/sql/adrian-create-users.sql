@@ -7,7 +7,7 @@ CREATE TABLE public.user_patient
     firstname  varchar(50) NOT NULL,
     lastname   varchar(50) NOT NULL,
     role       varchar(50) NOT NULL,
-    pesel      varchar(10) NOT NULL,
+    pesel      varchar(50) NOT NULL,
     updated_at timestamp,
     created_at timestamp,
     password   varchar(255),
