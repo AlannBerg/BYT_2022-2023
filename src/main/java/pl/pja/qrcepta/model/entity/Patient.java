@@ -53,6 +53,13 @@ public class Patient {
   @Column(name = "pesel", unique = true)
   private String peselNo;
 
+  @Column(name = "email", unique = true)
+  private String email;
+
+  @Column(name = "password", unique = true)
+  private String firstPassword;
+
+
   @NotNull
   @Enumerated(EnumType.STRING)
   @Column(name = "role")

@@ -71,22 +71,43 @@
         </Pane>
         <Label fx:id="peselSearchingInfoPanel" layoutX="43.0" layoutY="480.0" prefHeight="35.0" prefWidth="271.0" />
         <Button fx:id="setPrescriptionButton" disable="true" layoutX="44.0" layoutY="578.0" mnemonicParsing="false" onAction="#setPrescription" prefHeight="31.0" prefWidth="292.0" text="Wystaw nową receptę" />
-        <Pane fx:id="addNewPatientPane" layoutX="334.0" layoutY="248.0" prefHeight="380.0" prefWidth="257.0" visible="false">
+        <Pane fx:id="addNewPatientPane" layoutX="334.0" layoutY="145.0" prefHeight="483.0" prefWidth="257.0">
           <children>
             <Label alignment="CENTER" layoutX="10.0" layoutY="27.0" prefHeight="102.0" prefWidth="238.0" text="Dodaj nowego pacjenta" textAlignment="CENTER" wrapText="true">
               <font>
                 <Font size="24.0" />
               </font>
             </Label>
-            <TextField fx:id="newPatientNameTextField" layoutX="54.0" layoutY="165.0" />
-            <TextField fx:id="newPatientLastNameTextField" layoutX="54.0" layoutY="230.0" />
-            <Button fx:id="addNewPatientButton" layoutX="54.0" layoutY="299.0" mnemonicParsing="false" onAction="#addNewButton" prefHeight="25.0" prefWidth="149.0" text="Dodaj " />
-            <Label fx:id="newPatientInfoLabel" alignment="CENTER" layoutX="45.0" layoutY="264.0" prefHeight="35.0" prefWidth="168.0" />
-            <Button fx:id="cancelAddingNewPatientButton" layoutX="54.0" layoutY="335.0" mnemonicParsing="false" onAction="#cancelAddingNewPatient" prefHeight="25.0" prefWidth="149.0" text="Anuluj" />
+            <TextField fx:id="newPatientNameTextField" layoutX="54.0" layoutY="165.0" promptText="Imie" />
+            <TextField fx:id="newPatientLastNameTextField" layoutX="54.0" layoutY="230.0" promptText="Nazwisko" />
+            <Button fx:id="addNewPatientButton" layoutX="55.0" layoutY="361.0" mnemonicParsing="false" onAction="#addNewButton" prefHeight="25.0" prefWidth="149.0" text="Dodaj " />
+            <Label fx:id="newPatientInfoLabel" alignment="CENTER" layoutX="45.0" layoutY="307.0" prefHeight="35.0" prefWidth="168.0" />
+            <Button fx:id="cancelAddingNewPatientButton" layoutX="55.0" layoutY="399.0" mnemonicParsing="false" onAction="#cancelAddingNewPatient" prefHeight="25.0" prefWidth="149.0" text="Anuluj" />
+                  <Label layoutX="55.0" layoutY="129.0" prefHeight="31.0" prefWidth="149.0" text="Imie">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="54.0" layoutY="199.0" prefHeight="31.0" prefWidth="149.0" text="Hasło">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="newPatientEmail" layoutX="54.0" layoutY="294.0" promptText="Email" />
+                  <Label layoutX="55.0" layoutY="255.0" prefHeight="31.0" prefWidth="149.0" text="Email">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
           </children>
         </Pane>
         <Button fx:id="LogOutButton" alignment="CENTER" contentDisplay="RIGHT" layoutX="797.0" layoutY="34.0" mnemonicParsing="false" onAction="#logOutAction" prefHeight="25.0" prefWidth="107.0" text="Wyloguj" />
             <Button fx:id="cancelAllButton" layoutX="215.0" layoutY="532.0" mnemonicParsing="false" onAction="#cancelAll" prefHeight="25.0" prefWidth="123.0" text="Anuluj" />
+            <Label layoutX="43.0" layoutY="389.0" prefHeight="31.0" prefWidth="149.0" text="Pesel">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
       </children>
     </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">

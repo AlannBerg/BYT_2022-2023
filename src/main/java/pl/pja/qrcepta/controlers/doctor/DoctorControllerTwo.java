@@ -118,6 +118,7 @@ public class DoctorControllerTwo implements Initializable {
     PrescriptionDataSingleton.getInstance().setPrescription(prescription);
     showInfo("Recepta zapisana poprawnie", SUCCESS_MSG_COLOR);
     PrescriptionDataSingleton.getInstance().setPrescription(null);
+    cancellAll();
   }
 
   private void showPatientDataPane() {
@@ -140,4 +141,9 @@ public class DoctorControllerTwo implements Initializable {
   private boolean diagnosisAndPrescriptionIsEmpty() {
     return diagnosisTextArea.getText().isEmpty() || prescriptionTextArea.getText().isEmpty();
   }
+
+  private void cancellAll() {
+    diagnosisTextArea.clear();
+    prescriptionTextArea.clear();
+    }
 }

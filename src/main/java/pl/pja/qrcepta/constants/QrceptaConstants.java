@@ -44,4 +44,6 @@ public class QrceptaConstants {
 
   public static final String CHOOSE_QR_FILE_WINDOW_TITLE = "Wybierz kod QR.";
   public static final String QR_CODE_DATA_JOINER = "=";
+  public static final String FIRST_PASSWORD_FOR_PATIENT_PROFILE =
+      "$2y$10$qjmHDm/GHgEK68T4C8csSeVOLfG99M89W/YiSPhAPMddVawuzpqg6";
 }

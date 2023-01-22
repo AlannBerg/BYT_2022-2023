@@ -4,6 +4,7 @@ import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.ObjectUtils.isNotEmpty;
 import static pl.pja.qrcepta.constants.QrceptaConstants.ERROR_MSG_COLOR;
+import static pl.pja.qrcepta.constants.QrceptaConstants.FIRST_PASSWORD_FOR_PATIENT_PROFILE;
 import static pl.pja.qrcepta.constants.QrceptaConstants.MSG_SHOW_TIME_SECONDS;
 import static pl.pja.qrcepta.constants.QrceptaConstants.SUCCESS_MSG_COLOR;
 import static pl.pja.qrcepta.validator.PeselValidator.isPeselValid;
@@ -66,6 +67,7 @@ public class DoctorControllerOne implements Initializable {
   @FXML private Pane patientPrescriptionHistoryPane;
 
   @FXML private TextField peselNo;
+  @FXML private TextField newPatientEmail;
 
   @FXML private Label peselSearchingInfoPanel;
 
@@ -154,17 +156,25 @@ public class DoctorControllerOne implements Initializable {
       newPatientLastNameTextField.clear();
     }
     Patient patient =
-        patientService.saveNewPatient(
             Patient.builder()
                 .name(newPatientNameTextField.getText())
                 .lastname(newPatientLastNameTextField.getText())
                 .peselNo(peselNo.getText())
                 .role(UserType.PATIENT)
-                .build());
+                .build();
+
+    if(!newPatientEmail.getText().isEmpty()){
+      patient.setEmail(newPatientEmail.getText());
+      patient.setFirstPassword(FIRST_PASSWORD_FOR_PATIENT_PROFILE);
+    }
+    patient =  patientService.saveNewPatient(patient);
+
     if (isNull(patient)) {
       newPatientShowMesseage("Błąd podczas zapisywanai nowego pacjenta");
       return;
     }
+
+
     showInfo("Nowy pacjent dodany ponownie", SUCCESS_MSG_COLOR);
     PatientDataSingleton.getInstance().setPatient(patient);
     showPatientDataPane();

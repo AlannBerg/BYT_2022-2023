@@ -60,11 +60,6 @@ public class SceneManager {
     changeSceneTo(stage, DOCTOR_NEW_PRESCRIPTION, DOCTOR_NEW_PATIENT_TITLE);
   }
 
-  public static void changeSceneToSavedPrescription(Stage stage) {
-    changeSceneToFullScreen(
-        stage, DOCTOR_SAVED_PRESCRIPTION_SCENE, DOCTOR_SAVED_PRESCRIPTION_TITLE);
-  }
-
   public static void changeSceneToDoctorStage(Stage stage) {
     changeSceneTo(stage, DOCTOR_SCENE_NAME, DOCTOR_SCENE_TITLE);
   }
@@ -84,4 +79,32 @@ public class SceneManager {
   public static void changeSceneToForgotPassword(Stage stage) {
     changeSceneTo(stage, FORGOT_PASSWORD_SCENE, FORGOT_PASSWORD_TITLE);
   }
+//  public static void changeSceneAddPrescriptionForPatient(Stage stage) {
+////    changeSceneTo(stage, DOCTOR_NEW_PRESCRIPTION, DOCTOR_NEW_PATIENT_TITLE);
+//    changeSceneToFullScreen(stage, DOCTOR_NEW_PRESCRIPTION, DOCTOR_NEW_PATIENT_TITLE);
+//  }
+
+//  public static void changeSceneToDoctorStage(Stage stage) {
+////    changeSceneTo(stage, DOCTOR_SCENE_NAME, DOCTOR_SCENE_TITLE);
+//    changeSceneToFullScreen(stage, DOCTOR_SCENE_NAME, DOCTOR_SCENE_TITLE);
+//  }
+//
+//  public static void changeSceneToPharmacyStage(Stage stage) {
+////    changeSceneTo(stage, PHARMACY_SCENE_NAME, PHARMACY_SCENE_TITLE);
+//    changeSceneToFullScreen(stage, PHARMACY_SCENE_NAME, PHARMACY_SCENE_TITLE);
+//  }
+//
+//  public static void changeSceneToAdminPanel(Stage stage) {
+//    changeSceneTo(stage, ADMIN_SCENE_NAME, ADMIN_SCENE_TITLE);
+//  }
+//
+//  public static void changeSceneToPharmacyShowPrescription(Stage stage) {
+//    changeSceneToFullScreen(stage, PHARMACY_RETURN_PRESCRIPTION_SCENE_NAME, PHARMACY_SCENE_TITLE);
+////    changeSceneTo(stage, PHARMACY_RETURN_PRESCRIPTION_SCENE_NAME, PHARMACY_SCENE_TITLE);
+//  }
+//
+//  public static void changeSceneToForgotPassword(Stage stage) {
+////    changeSceneTo(stage, FORGOT_PASSWORD_SCENE, FORGOT_PASSWORD_TITLE);
+//    changeSceneToFullScreen(stage, FORGOT_PASSWORD_SCENE, FORGOT_PASSWORD_TITLE);
+//  }
 }
