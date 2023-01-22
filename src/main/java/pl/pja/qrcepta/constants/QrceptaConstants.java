@@ -4,7 +4,8 @@ import javafx.scene.paint.Paint;
 
 public class QrceptaConstants {
   public static final String DB_CONFIG_PROPERTY_NAME = "db.properties.path";
-  public static final String PATH_TO_SETTINGS_FILE = "./settings.xml";
+  public static final String PATH_TO_SETTINGS_FILE = ".\\settings.xml";
+  public static final String PATH_TO_CONFIGURATION_DB_FILE = ".\\qrcepta.properties";
 
   public static final String PERSISTENCE_NAME = "qrcepta-persistence-unit";
 

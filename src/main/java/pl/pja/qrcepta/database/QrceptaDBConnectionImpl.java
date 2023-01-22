@@ -1,9 +1,9 @@
 package pl.pja.qrcepta.database;
 
 import static pl.pja.qrcepta.constants.QrceptaConstants.DB_CONFIG_PROPERTY_NAME;
+import static pl.pja.qrcepta.constants.QrceptaConstants.PATH_TO_CONFIGURATION_DB_FILE;
 import static pl.pja.qrcepta.constants.QrceptaConstants.PATH_TO_SETTINGS_FILE;
 import static pl.pja.qrcepta.constants.QrceptaConstants.PERSISTENCE_NAME;
-
 import java.io.FileInputStream;
 import java.util.Optional;
 import java.util.Properties;
@@ -44,6 +44,21 @@ public class QrceptaDBConnectionImpl implements QrceptaDBConnection {
     }
     return null;
   }
+
+//  @SneakyThrows
+//  public static EntityManager getEntityManager() {
+//    Properties properties = new Properties();
+//    try (FileInputStream inputStreamDatabaseProperties =
+//        new FileInputStream(PATH_TO_CONFIGURATION_DB_FILE)) {
+//      properties.load(inputStreamDatabaseProperties);
+//      EntityManagerFactory entityManagerFactory =
+//          Persistence.createEntityManagerFactory(PERSISTENCE_NAME, properties);
+//      return entityManagerFactory.createEntityManager();
+//    } catch (Exception e) {
+//      log.error("Can not create persistence e {}", e.getMessage());
+//      return null;
+//    }
+//  }
 
   @Override
   public boolean securityCodeExistInDB(@NotNull String securityCode) {
