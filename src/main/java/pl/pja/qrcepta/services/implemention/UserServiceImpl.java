@@ -5,7 +5,6 @@ import static java.util.Objects.nonNull;
 import javax.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import pl.pja.qrcepta.database.UserRepository;
-import pl.pja.qrcepta.model.entity.UserType;
 import pl.pja.qrcepta.model.entity.User;
 import pl.pja.qrcepta.services.UserService;
 
@@ -14,16 +13,15 @@ public class UserServiceImpl implements UserService {
   private UserRepository userRepository = new UserRepository();
 
   @Override
-  public UserType getUserRole(@NotNull String login, @NotNull String hashedPassword) {
+  public User getUser(@NotNull String login, @NotNull String hashedPassword) {
     log.info("Getting  user role, checking if it exist.");
     User user = userRepository.getUserFromDatabase(login, hashedPassword);
     if (nonNull(user)) {
-      UserType userType = user.getUserType();
-      log.debug("User {} returned role is {}", login, userType);
-      return userType;
+      log.debug("User returned  is {}", user);
+      return user;
     }
     log.error("User {} dont exist", login);
-    return UserType.NOT_EXIST;
+    return null;
   }
 
   @Override

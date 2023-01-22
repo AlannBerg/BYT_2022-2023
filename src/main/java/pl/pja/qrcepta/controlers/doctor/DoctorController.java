@@ -24,6 +24,6 @@ public class DoctorController {
   @FXML
   void NewPatientAction(ActionEvent event) {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    SceneManager.changeSceneToNewPatientScene(stage);
+    SceneManager.changeSceneAddPrescriptionForPatient(stage);
   }
 }

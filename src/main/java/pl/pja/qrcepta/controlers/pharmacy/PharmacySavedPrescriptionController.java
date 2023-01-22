@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
-import pl.pja.qrcepta.dataConnection.DataSingleton;
+import pl.pja.qrcepta.dataConnection.PrescriptionDataSingleton;
 import pl.pja.qrcepta.model.entity.Patient;
 import pl.pja.qrcepta.model.entity.Prescription;
 import pl.pja.qrcepta.utlis.SceneManager;
@@ -24,7 +24,7 @@ public class PharmacySavedPrescriptionController implements Initializable {
 
   @FXML private TextArea prescriptionData;
 
-  DataSingleton prescriptionDataSingleton = DataSingleton.getInstance();
+  PrescriptionDataSingleton prescriptionDataSingleton = PrescriptionDataSingleton.getInstance();
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {

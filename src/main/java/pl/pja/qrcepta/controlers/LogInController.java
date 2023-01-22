@@ -1,5 +1,6 @@
 package pl.pja.qrcepta.controlers;
 
+import static java.util.Objects.isNull;
 import static pl.pja.qrcepta.constants.QrceptaConstants.ERROR_MSG_TEXT_CLEAR;
 import static pl.pja.qrcepta.constants.QrceptaConstants.MSG_SHOW_TIME_SECONDS;
 import static pl.pja.qrcepta.constants.QrceptaConstants.LOG_IN_ERROR_MSG_TEXT;
@@ -15,6 +16,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import lombok.extern.slf4j.Slf4j;
+import pl.pja.qrcepta.dataConnection.UserDataSingleton;
+import pl.pja.qrcepta.model.entity.User;
 import pl.pja.qrcepta.model.entity.UserType;
 import pl.pja.qrcepta.services.UserService;
 import pl.pja.qrcepta.services.implemention.UserServiceImpl;
@@ -39,7 +42,15 @@ public class LogInController {
     log.info("Log in action");
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     String securePassword = PasswordUtils.encryptPassword(passwordLabel.getText());
-    UserType userType = userService.getUserRole(loginLabel.getText(), securePassword);
+    User user = userService.getUser(loginLabel.getText(), securePassword);
+
+    if (isNull(user)) {
+      showErrorMessage();
+      return;
+    }
+
+    UserDataSingleton.getInstance().setUser(user);
+    UserType userType = user.getUserType();
     try {
       switch (userType) {
         case DOCTOR:

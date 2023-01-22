@@ -8,7 +8,7 @@ import static pl.pja.qrcepta.constants.QrceptaConstants.LOG_IN_SCENE_NAME;
 import static pl.pja.qrcepta.constants.QrceptaConstants.LOG_IN_STAGE_HEIGHT;
 import static pl.pja.qrcepta.constants.QrceptaConstants.LOG_IN_TITLE;
 import static pl.pja.qrcepta.constants.QrceptaConstants.LOG_IN_STAGE_WIDTH;
-import static pl.pja.qrcepta.constants.QrceptaConstants.DOCTOR_NEW_PATIENT_SCENE;
+import static pl.pja.qrcepta.constants.QrceptaConstants.DOCTOR_NEW_PRESCRIPTION;
 import static pl.pja.qrcepta.constants.QrceptaConstants.DOCTOR_NEW_PATIENT_TITLE;
 import static pl.pja.qrcepta.constants.QrceptaConstants.PHARMACY_RETURN_PRESCRIPTION_SCENE_NAME;
 import static pl.pja.qrcepta.constants.QrceptaConstants.PHARMACY_SCENE_NAME;
@@ -54,8 +54,8 @@ public class SceneManager {
     changeSceneTo(stage, LOG_IN_SCENE_NAME, LOG_IN_TITLE, LOG_IN_STAGE_WIDTH, LOG_IN_STAGE_HEIGHT);
   }
 
-  public static void changeSceneToNewPatientScene(Stage stage) {
-    changeSceneToFullScreen(stage, DOCTOR_NEW_PATIENT_SCENE, DOCTOR_NEW_PATIENT_TITLE);
+  public static void changeSceneAddPrescriptionForPatient(Stage stage) {
+    changeSceneTo(stage, DOCTOR_NEW_PRESCRIPTION, DOCTOR_NEW_PATIENT_TITLE);
   }
 
   public static void changeSceneToSavedPrescription(Stage stage) {

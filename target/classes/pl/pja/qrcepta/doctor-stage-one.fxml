@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="764.0" prefWidth="1071.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pja.qrcepta.controlers.doctor.DoctorControllerOne">
+  <columnConstraints>
+    <ColumnConstraints />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="303.0" minWidth="0.0" prefWidth="0.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="926.0" minWidth="10.0" prefWidth="926.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="18.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="122.0" minHeight="0.0" prefHeight="3.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="668.0" minHeight="10.0" prefHeight="665.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="217.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+  <children>
+    <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <children>
+        <ImageView fitHeight="658.0" fitWidth="926.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@images/doctor-background.jpg" />
+          </image>
+        </ImageView>
+        <TextField fx:id="peselNo" layoutX="43.0" layoutY="438.0" prefHeight="25.0" prefWidth="149.0" promptText="Pesel" />
+        <Label alignment="CENTER" layoutX="323.0" layoutY="12.0" prefHeight="70.0" prefWidth="281.0" text="QRcepta" textFill="WHITE">
+          <font>
+            <Font size="48.0" />
+          </font>
+        </Label>
+        <Button fx:id="newPatientButton" layoutX="43.0" layoutY="532.0" mnemonicParsing="false" onAction="#searchPatient" prefHeight="25.0" prefWidth="149.0" text="Nowy pacjent" />
+        <Pane fx:id="patientPane" layoutX="21.0" layoutY="248.0" prefHeight="172.0" prefWidth="238.0" visible="false">
+          <children>
+            <Label alignment="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="238.0" text="Pacjent">
+              <font>
+                <Font size="24.0" />
+              </font>
+            </Label>
+            <Label fx:id="foundPatientName" alignment="CENTER" layoutY="72.0" prefHeight="17.0" prefWidth="238.0" text="imie">
+              <font>
+                <Font size="24.0" />
+              </font>
+            </Label>
+            <Label fx:id="foundPatientLastName" alignment="CENTER" layoutY="122.0" prefHeight="17.0" prefWidth="238.0" text="nazwisko">
+              <font>
+                <Font size="24.0" />
+              </font>
+            </Label>
+          </children>
+        </Pane>
+        <Pane fx:id="patientPrescriptionHistoryPane" layoutX="631.0" layoutY="182.0" prefHeight="460.0" prefWidth="271.0" visible="false">
+          <children>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="50.0" prefWidth="238.0" text="Historia recept">
+              <font>
+                <Font size="24.0" />
+              </font>
+            </Label>
+            <ListView fx:id="patientPrescriptionHistoryListView" layoutX="18.0" layoutY="75.0" prefHeight="367.0" prefWidth="232.0" />
+          </children>
+        </Pane>
+        <Label fx:id="peselSearchingInfoPanel" layoutX="43.0" layoutY="480.0" prefHeight="35.0" prefWidth="271.0" />
+        <Button fx:id="setPrescriptionButton" disable="true" layoutX="44.0" layoutY="578.0" mnemonicParsing="false" onAction="#setPrescription" prefHeight="31.0" prefWidth="193.0" text="Wystaw nową receptę" />
+        <Pane fx:id="addNewPatientPane" layoutX="334.0" layoutY="248.0" prefHeight="380.0" prefWidth="257.0" visible="false">
+          <children>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="27.0" prefHeight="102.0" prefWidth="238.0" text="Dodaj nowego pacjenta" textAlignment="CENTER" wrapText="true">
+              <font>
+                <Font size="24.0" />
+              </font>
+            </Label>
+            <TextField fx:id="newPatientNameTextField" layoutX="54.0" layoutY="165.0" />
+            <TextField fx:id="newPatientLastNameTextField" layoutX="54.0" layoutY="230.0" />
+            <Button fx:id="addNewPatientButton" layoutX="54.0" layoutY="299.0" mnemonicParsing="false" onAction="#addNewButton" prefHeight="25.0" prefWidth="149.0" text="Dodaj " />
+            <Label fx:id="newPatientInfoLabel" alignment="CENTER" layoutX="45.0" layoutY="264.0" prefHeight="35.0" prefWidth="168.0" />
+            <Button fx:id="cancelAddingNewPatientButton" layoutX="54.0" layoutY="335.0" mnemonicParsing="false" onAction="#cancelAddingNewPatient" prefHeight="25.0" prefWidth="149.0" text="Anuluj" />
+          </children>
+        </Pane>
+        <Button fx:id="LogOutButton" alignment="CENTER" contentDisplay="RIGHT" layoutX="797.0" layoutY="34.0" mnemonicParsing="false" onAction="#logOutAction" prefHeight="25.0" prefWidth="107.0" text="Wyloguj" />
+        <Label fx:id="usersName" alignment="CENTER_RIGHT" layoutX="584.0" layoutY="30.0" prefHeight="35.0" prefWidth="205.0" textFill="WHITE">
+          <font>
+            <Font size="24.0" />
+          </font>
+        </Label>
+      </children>
+    </Pane>
+    <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+  </children>
+</GridPane>

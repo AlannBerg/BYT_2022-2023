@@ -4,9 +4,9 @@
 CREATE TABLE public.users
 (
     user_id   serial PRIMARY KEY,
-    login     varchar(30)  not null,
-    password  varchar(255) not null,
-    user_role varchar(15)  not null,
-    user_name varchar(30)  not null,
+    login     varchar(30)  NOT NULL,
+    password  varchar(255) NOT NULL,
+    user_role varchar(15)  NOT NULL,
+    user_name varchar(30)  NOT NULL,
     constraint unique_login UNIQUE (login)
 );

@@ -7,7 +7,6 @@ pl\pja\qrcepta\model\entity\User$UserBuilder.class
 pl\pja\qrcepta\services\PrescriptionService.class
 pl\pja\qrcepta\services\implemention\PatientServiceImpl.class
 pl\pja\qrcepta\services\PatientService.class
-pl\pja\qrcepta\controlers\doctor\DoctorNewPatientController.class
 pl\pja\qrcepta\model\dto\PrescriptionDTO.class
 pl\pja\qrcepta\model\entity\Patient.class
 pl\pja\qrcepta\utlis\PasswordUtils.class
@@ -26,13 +25,11 @@ pl\pja\qrcepta\controlers\LogInController$1.class
 pl\pja\qrcepta\validator\PeselValidator.class
 module-info.class
 pl\pja\qrcepta\model\entity\Prescription.class
-pl\pja\qrcepta\dataConnection\DataSingleton.class
 pl\pja\qrcepta\model\dto\PrescriptionDTO$PrescriptionDTOBuilder.class
 pl\pja\qrcepta\services\implemention\PrescriptionServiceImpl.class
 pl\pja\qrcepta\model\entity\User.class
 pl\pja\qrcepta\services\implemention\SecurityCodeGeneratorImpl.class
 pl\pja\qrcepta\services\SecurityCodeGenerator.class
 pl\pja\qrcepta\model\entity\Prescription$PrescriptionBuilder.class
-pl\pja\qrcepta\controlers\doctor\DoctorSavedPrescriptionController.class
 pl\pja\qrcepta\database\QrceptaDBConnection.class
 pl\pja\qrcepta\controlers\LogInController.class

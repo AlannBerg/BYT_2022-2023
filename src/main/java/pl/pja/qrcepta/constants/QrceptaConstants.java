@@ -8,11 +8,11 @@ public class QrceptaConstants {
   public static final double LOG_IN_STAGE_WIDTH = 750;
   public static final double LOG_IN_STAGE_HEIGHT = 500;
 
-  public static final String DOCTOR_SCENE_NAME = "doctor-stage.fxml";
+  public static final String DOCTOR_SCENE_NAME = "doctor-stage-one.fxml";
   public static final String DOCTOR_SCENE_TITLE = "QRCEPTA DOCTOR";
   public static final String DOCTOR_SAVED_PRESCRIPTION_SCENE = "doctor_saved-prescription.fxml";
   public static final String DOCTOR_SAVED_PRESCRIPTION_TITLE = "Utworzona recepta";
-  public static final String DOCTOR_NEW_PATIENT_SCENE = "doctor_new-patient.fxml";
+  public static final String DOCTOR_NEW_PRESCRIPTION = "doctor-stage-two.fxml";
   public static final String DOCTOR_NEW_PATIENT_TITLE = "NOWY PACJENT";
 
   public static final String PHARMACY_SCENE_NAME = "pharmacy-stage.fxml";

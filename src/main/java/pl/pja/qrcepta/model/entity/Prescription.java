@@ -1,6 +1,7 @@
 package pl.pja.qrcepta.model.entity;
 
 import java.sql.Blob;
+import java.time.ZonedDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -21,6 +22,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Type;
 
 @Data
@@ -40,7 +42,11 @@ import org.hibernate.annotations.Type;
   @NamedQuery(
       name = "Prescription.getByPatientIDandSecurityCode",
       query =
-          "select prescription from Prescription prescription where prescription.patient.id = :patientID and prescription.securityCode = :securityCode")
+          "select prescription from Prescription prescription where prescription.patient.id = :patientID and prescription.securityCode = :securityCode"),
+  @NamedQuery(
+      name = "Prescription.getByPatientID",
+      query =
+          "select prescription from Prescription prescription where prescription.patient.id = :patientID")
 })
 @Table(name = "prescriptions")
 public class Prescription {
@@ -65,7 +71,6 @@ public class Prescription {
   private String securityCode;
 
   @Lob
-  //  @NotNull
   @Type(type = "org.hibernate.type.BinaryType")
   @Column(name = "qr_code_img")
   private byte[] qr_code;
@@ -79,7 +84,7 @@ public class Prescription {
   @JoinColumn(name = "patient_id")
   private Patient patient;
 
-  //  @ManyToOne(fetch = FetchType.EAGER)
-  //  @JoinColumn(name = "patient_id")
-  //  private Patient patient;
+  @CreationTimestamp
+  @Column(name = "creation_date")
+  private ZonedDateTime created_at;
 }

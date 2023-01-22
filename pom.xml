@@ -39,12 +39,6 @@
       <scope>test</scope>
     </dependency>
 
-    <!--    <dependency>-->
-    <!--      <groupId>mysql</groupId>-->
-    <!--      <artifactId>mysql-connector-java</artifactId>-->
-    <!--      <version>8.0.32</version>-->
-    <!--    </dependency>-->
-
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
@@ -117,7 +111,7 @@
       <artifactId>javase</artifactId>
       <version>3.4.1</version>
     </dependency>
-
+    
   </dependencies>
 
   <build>
@@ -185,6 +179,28 @@
             <version>42.5.1</version>
           </dependency>
         </dependencies>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>pl.pja.qrcepta.QRceptaApplication</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id> <!-- this is used for inheritance merges -->
+            <phase>package</phase> <!-- bind to the packaging phase -->
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
 
     </plugins>

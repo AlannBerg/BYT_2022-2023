@@ -2,6 +2,9 @@ package pl.pja.qrcepta.database;
 
 import static pl.pja.qrcepta.database.QrceptaDBConnectionImpl.getEntityManager;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.validation.constraints.NotNull;
@@ -63,6 +66,21 @@ public class PrescriptionRepository {
     } catch (Exception e) {
       log.error("Can not find prescritpion for {} {}", patientID, e.getMessage());
       return null;
+    } finally {
+      entityManager.close();
+    }
+  }
+
+  public List<Prescription> getPrescriptionListForPatient(@NotNull Long patientID) {
+    EntityManager entityManager = getEntityManager();
+    try {
+      return entityManager
+          .createNamedQuery("Prescription.getByPatientID", Prescription.class)
+          .setParameter("patientID", patientID)
+          .getResultList();
+    } catch (Exception e) {
+      log.error("Can not find prescritpion list  for {} {}", patientID, e.getMessage());
+      return Collections.emptyList();
     } finally {
       entityManager.close();
     }

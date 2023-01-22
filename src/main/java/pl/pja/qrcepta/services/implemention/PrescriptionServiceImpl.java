@@ -3,11 +3,13 @@ package pl.pja.qrcepta.services.implemention;
 import static java.util.Objects.isNull;
 
 import java.io.File;
+import java.util.List;
 import javax.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import pl.pja.qrcepta.database.PrescriptionRepository;
 import pl.pja.qrcepta.exceptions.DatabaseSaveException;
 import pl.pja.qrcepta.model.dto.PrescriptionDTO;
+import pl.pja.qrcepta.model.entity.Patient;
 import pl.pja.qrcepta.model.entity.Prescription;
 import pl.pja.qrcepta.services.PrescriptionService;
 import pl.pja.qrcepta.services.QrCodeService;
@@ -49,20 +51,6 @@ public class PrescriptionServiceImpl implements PrescriptionService {
   }
 
   @Override
-  public Prescription getPrescription(String id, String securityCode) {
-    //      log.info("Geting prescription for id {}", id);
-    //      Prescription prescription = qrceptaDBConnection.getPrescription(id, securityCode);
-    //      if (isNull(prescription)) {
-    //        log.error("Can not find prescription for id {}", id);
-    //        return null;
-    //      }
-    //      log.debug("Prescritpion found for id {} : {}", id, prescription);
-    //      return prescription;
-    //
-    return null;
-  }
-
-  @Override
   public Prescription getPrescriptionFromQrCode(@NotNull File file) {
     log.info("Geting prescription via qr code");
     PrescriptionDTO prescriptionDTO = qrCodeService.getPrescriptionDtoFromQRCode(file);
@@ -75,5 +63,14 @@ public class PrescriptionServiceImpl implements PrescriptionService {
     }
     log.debug("Prescritpion found for  QR Code : {}", prescription);
     return prescription;
+  }
+
+  @Override
+  public List<Prescription> getPrescriptionsForPatient(@NotNull Patient foundPatient) {
+    log.info("Geting prescription list for patient {}", foundPatient);
+    List<Prescription> prescriptions =
+        prescriptionRepository.getPrescriptionListForPatient(foundPatient.getId());
+    log.debug("Found prescriptions {}", prescriptions);
+    return prescriptions;
   }
 }

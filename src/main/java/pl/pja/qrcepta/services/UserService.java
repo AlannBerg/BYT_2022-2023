@@ -1,6 +1,5 @@
 package pl.pja.qrcepta.services;
 
-import pl.pja.qrcepta.model.entity.UserType;
 import pl.pja.qrcepta.model.entity.User;
 
 public interface UserService {
@@ -12,7 +11,7 @@ public interface UserService {
    * @param password to account;
    * @return User type, type of account.
    */
-  UserType getUserRole(String login, String password);
+  User getUser(String login, String password);
 
   Boolean saveNewUser(User newUser);
 

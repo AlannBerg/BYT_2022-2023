@@ -17,7 +17,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import lombok.extern.slf4j.Slf4j;
-import pl.pja.qrcepta.dataConnection.DataSingleton;
+import pl.pja.qrcepta.dataConnection.PrescriptionDataSingleton;
 import pl.pja.qrcepta.model.entity.Prescription;
 import pl.pja.qrcepta.services.PrescriptionService;
 import pl.pja.qrcepta.services.implemention.PrescriptionServiceImpl;
@@ -38,7 +38,7 @@ public class PharmacyController {
 
   private PrescriptionService prescriptionService = new PrescriptionServiceImpl();
 
-  private DataSingleton prescriptionData = DataSingleton.getInstance();
+  private PrescriptionDataSingleton prescriptionData = PrescriptionDataSingleton.getInstance();
 
   @FXML
   void logOut(ActionEvent event) {
