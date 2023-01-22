@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -90,8 +91,13 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="peselTextFIeld" layoutX="45.0" layoutY="67.0" promptText="Pesel" />
+                  <TextField fx:id="peselTextFIeld" layoutX="44.0" layoutY="93.0" promptText="Pesel" />
                   <Button fx:id="searchpatientButton" layoutX="61.0" layoutY="137.0" mnemonicParsing="false" onAction="#searchPatient" prefHeight="25.0" prefWidth="117.0" text="Wyszukaj osobę" />
+                  <Label layoutX="44.0" layoutY="49.0" prefHeight="27.0" prefWidth="149.0" text="Pesel">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
             <Label fx:id="prescriptionInfoLabel" alignment="CENTER" layoutX="14.0" layoutY="360.0" prefHeight="35.0" prefWidth="238.0">
@@ -115,11 +121,12 @@
     </Pane>
     <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
          <children>
-        <Label fx:id="usersName" alignment="CENTER_RIGHT" layoutX="701.0" layoutY="8.0" prefHeight="35.0" prefWidth="205.0" textFill="WHITE">
+        <Label fx:id="usersName" alignment="CENTER_RIGHT" layoutX="684.0" layoutY="7.0" prefHeight="35.0" prefWidth="205.0" textFill="WHITE">
           <font>
             <Font size="24.0" />
           </font>
         </Label>
          </children></Pane>
+      <Accordion />
   </children>
 </GridPane>
