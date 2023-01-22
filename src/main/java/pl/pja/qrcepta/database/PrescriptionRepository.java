@@ -2,14 +2,15 @@ package pl.pja.qrcepta.database;
 
 import static pl.pja.qrcepta.database.QrceptaDBConnectionImpl.getEntityManager;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import pl.pja.qrcepta.model.entity.Prescription;
+import pl.pja.qrcepta.model.entity.PrescriptionStatus;
 
 @Slf4j
 public class PrescriptionRepository {
@@ -39,6 +40,7 @@ public class PrescriptionRepository {
       return entityManager
           .createNamedQuery("Prescription.getByID", Prescription.class)
           .setParameter("id", id)
+          .setParameter("status", PrescriptionStatus.CREATED)
           .getResultList()
           .stream()
           .findFirst()
@@ -59,6 +61,7 @@ public class PrescriptionRepository {
           .createNamedQuery("Prescription.getByPatientIDandSecurityCode", Prescription.class)
           .setParameter("patientID", patientID)
           .setParameter("securityCode", securityCode)
+          .setParameter("status", PrescriptionStatus.CREATED)
           .getResultList()
           .stream()
           .findFirst()
@@ -81,6 +84,32 @@ public class PrescriptionRepository {
     } catch (Exception e) {
       log.error("Can not find prescritpion list  for {} {}", patientID, e.getMessage());
       return Collections.emptyList();
+    } finally {
+      entityManager.close();
+    }
+  }
+
+  public Prescription setNewStatus(@NotNull Long id, @NotNull PrescriptionStatus newStatus) {
+    EntityManager entityManager = getEntityManager();
+    EntityTransaction transaction = entityManager.getTransaction();
+    try {
+      transaction.begin();
+      Prescription prescription =
+          entityManager
+              .createNamedQuery("Prescription.getByID", Prescription.class)
+              .setParameter("id", id)
+              .setParameter("status", PrescriptionStatus.CREATED)
+              .getResultList()
+              .stream()
+              .findFirst()
+              .orElse(null);
+      Objects.requireNonNull(prescription).setStatus(newStatus);
+      entityManager.persist(prescription);
+      transaction.commit();
+      return prescription;
+    } catch (Exception e) {
+      log.error("Can not update prescritpion  for {} {}", id, e.getMessage());
+      return null;
     } finally {
       entityManager.close();
     }

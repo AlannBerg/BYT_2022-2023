@@ -14,4 +14,8 @@ public interface PrescriptionService {
   Prescription getPrescriptionFromQrCode(File file);
 
   List<Prescription> getPrescriptionsForPatient(Patient foundPatient);
+
+  Prescription setStatusAsRelased(Prescription prescription);
+
+  Prescription setStatusAsCanceled(Prescription choosedPrescription);
 }

@@ -15,7 +15,7 @@ public class QrceptaConstants {
   public static final String DOCTOR_NEW_PRESCRIPTION = "doctor-stage-two.fxml";
   public static final String DOCTOR_NEW_PATIENT_TITLE = "NOWY PACJENT";
 
-  public static final String PHARMACY_SCENE_NAME = "pharmacy-stage.fxml";
+  public static final String PHARMACY_SCENE_NAME = "pharmacy-one.fxml";
   public static final String PHARMACY_SCENE_TITLE = "QRCEPTA PHARMACY";
   public static final String PHARMACY_RETURN_PRESCRIPTION_SCENE_NAME =
       "pharmacy-return-prescription.fxml";
@@ -36,7 +36,7 @@ public class QrceptaConstants {
   public static final String LOG_IN_ERROR_MSG_TEXT = "Błąd logowania.";
   public static final String PRESCRIPTION_NOT_FOUND_ERROR_MSG_TEXT = "Nie znaleziono recepty.";
   public static final String ERROR_MSG_TEXT_CLEAR = null;
-  public static final Integer MSG_SHOW_TIME_SECONDS = 2;
+  public static final Integer MSG_SHOW_TIME_SECONDS = 1;
   public static final Paint SUCCESS_MSG_COLOR = Paint.valueOf("Green");
   public static final Paint ERROR_MSG_COLOR = Paint.valueOf("Red");
 

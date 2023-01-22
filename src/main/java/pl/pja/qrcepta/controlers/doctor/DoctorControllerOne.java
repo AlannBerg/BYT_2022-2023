@@ -77,6 +77,10 @@ public class DoctorControllerOne implements Initializable {
 
   @FXML private Button cancelAddingNewPatientButton;
 
+  @FXML private Button cancelAllButton;
+
+  @FXML private Button deletePrescriptionButton;
+
   private SecurityCodeGenerator securityCodeGenerator = new SecurityCodeGeneratorImpl();
   QrCodeService qrGenerator = new QrCodeServiceImpl();
   private PatientService patientService = new PatientServiceImpl();
@@ -84,8 +88,30 @@ public class DoctorControllerOne implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
+    cancelAllData();
     User user = UserDataSingleton.getInstance().getUser();
     usersName.setText(user.getUserName());
+  }
+
+  @FXML
+  void cancelAll(ActionEvent event) {
+    cancelAllData();
+  }
+
+  @FXML
+  void deletePrescription(ActionEvent event) {
+    if (patientPrescriptionHistoryListView.getSelectionModel().isEmpty()) {
+      showInfo("Wybierz receptę do zarchiwizowania", ERROR_MSG_COLOR);
+      return;
+    }
+    Prescription choosedPrescription =
+        patientPrescriptionHistoryListView.getSelectionModel().getSelectedItem();
+
+    Prescription canceled = prescriptionService.setStatusAsCanceled(choosedPrescription);
+    if (isNull(canceled)) {
+      showInfo("Błąd podczas archiwizowania", ERROR_MSG_COLOR);
+    }
+    showInfo("Zarchiwizowano pomyślnie", SUCCESS_MSG_COLOR);
   }
 
   @FXML
@@ -100,7 +126,7 @@ public class DoctorControllerOne implements Initializable {
   void searchPatient(ActionEvent event) {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     if (!peselIsValid(peselNo.getText())) {
-      showPeselLabelInfo("Niepoprawny pesel", ERROR_MSG_COLOR);
+      showInfo("Niepoprawny pesel", ERROR_MSG_COLOR);
       return;
     }
     Patient patient = patientService.getPatientWithPesel(peselNo.getText());
@@ -139,7 +165,7 @@ public class DoctorControllerOne implements Initializable {
       newPatientShowMesseage("Błąd podczas zapisywanai nowego pacjenta");
       return;
     }
-    showPeselLabelInfo("Nowy pacjent dodany ponownie", SUCCESS_MSG_COLOR);
+    showInfo("Nowy pacjent dodany ponownie", SUCCESS_MSG_COLOR);
     PatientDataSingleton.getInstance().setPatient(patient);
     showPatientDataPane();
     setPrescriptionButton.setDisable(false);
@@ -159,7 +185,6 @@ public class DoctorControllerOne implements Initializable {
     addNewPatientPane.setVisible(false);
   }
 
-  // todo
   private boolean peselIsValid(String pesel) {
     return isPeselValid(pesel);
   }
@@ -195,8 +220,7 @@ public class DoctorControllerOne implements Initializable {
     }
   }
 
-  // todo do jakichs utilsow
-  private void showPeselLabelInfo(String info, Paint color) {
+  private void showInfo(String info, Paint color) {
     PauseTransition pause = new PauseTransition(Duration.seconds(MSG_SHOW_TIME_SECONDS));
     pause.setOnFinished(
         e -> {
@@ -204,5 +228,16 @@ public class DoctorControllerOne implements Initializable {
           peselSearchingInfoPanel.setTextFill(color);
         });
     pause.play();
+  }
+
+  private void cancelAllData() {
+    patientPane.setVisible(false);
+    foundPatientName.setText(null);
+    foundPatientLastName.setText(null);
+    newPatientNameTextField.clear();
+    newPatientLastNameTextField.clear();
+    addNewPatientPane.setVisible(false);
+    patientPrescriptionHistoryListView.getItems().clear();
+    patientPrescriptionHistoryPane.setVisible(false);
   }
 }

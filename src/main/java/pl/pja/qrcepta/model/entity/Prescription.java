@@ -38,11 +38,12 @@ import org.hibernate.annotations.Type;
           "select prescription from Prescription prescription where prescription.securityCode = :securityCode"),
   @NamedQuery(
       name = "Prescription.getByID",
-      query = "select prescription from Prescription prescription where prescription.id = :id"),
+      query =
+          "select prescription from Prescription prescription where prescription.id = :id and prescription.status = :status"),
   @NamedQuery(
       name = "Prescription.getByPatientIDandSecurityCode",
       query =
-          "select prescription from Prescription prescription where prescription.patient.id = :patientID and prescription.securityCode = :securityCode"),
+          "select prescription from Prescription prescription where prescription.patient.id = :patientID and prescription.securityCode = :securityCode and prescription.status = :status"),
   @NamedQuery(
       name = "Prescription.getByPatientID",
       query =
@@ -76,6 +77,7 @@ public class Prescription {
   private byte[] qr_code;
 
   @NotNull
+  @ToString.Include
   @Enumerated(EnumType.STRING)
   @Column(name = "status")
   private PrescriptionStatus status;
@@ -84,6 +86,7 @@ public class Prescription {
   @JoinColumn(name = "patient_id")
   private Patient patient;
 
+  @ToString.Include
   @CreationTimestamp
   @Column(name = "creation_date")
   private ZonedDateTime created_at;

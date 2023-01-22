@@ -17,12 +17,14 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import lombok.extern.slf4j.Slf4j;
 import pl.pja.qrcepta.model.entity.UserType;
@@ -30,6 +32,7 @@ import pl.pja.qrcepta.model.entity.User;
 import pl.pja.qrcepta.services.UserService;
 import pl.pja.qrcepta.services.implemention.UserServiceImpl;
 import pl.pja.qrcepta.utlis.PasswordUtils;
+import pl.pja.qrcepta.utlis.SceneManager;
 
 @Slf4j
 public class AdminPanelController implements Initializable {
@@ -67,6 +70,7 @@ public class AdminPanelController implements Initializable {
   @FXML private Button saveUserButton;
 
   @FXML private Button submitNewUser;
+  @FXML private Button LogOutButton;
 
   @FXML private TextArea userToDeleteData;
 
@@ -153,6 +157,13 @@ public class AdminPanelController implements Initializable {
   public void initialize(URL url, ResourceBundle resourceBundle) {
     newUserRole.setItems(
         FXCollections.observableArrayList(UserType.ADMIN, UserType.DOCTOR, UserType.PHARMACIST));
+  }
+
+  @FXML
+  void logOutAction(ActionEvent event) {
+    log.info("LOGING OUT");
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    SceneManager.changeSceneToLoginScene(stage);
   }
 
   private boolean newUserDataIsNotReady() {

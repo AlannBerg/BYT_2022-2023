@@ -11,6 +11,7 @@ import pl.pja.qrcepta.exceptions.DatabaseSaveException;
 import pl.pja.qrcepta.model.dto.PrescriptionDTO;
 import pl.pja.qrcepta.model.entity.Patient;
 import pl.pja.qrcepta.model.entity.Prescription;
+import pl.pja.qrcepta.model.entity.PrescriptionStatus;
 import pl.pja.qrcepta.services.PrescriptionService;
 import pl.pja.qrcepta.services.QrCodeService;
 
@@ -72,5 +73,27 @@ public class PrescriptionServiceImpl implements PrescriptionService {
         prescriptionRepository.getPrescriptionListForPatient(foundPatient.getId());
     log.debug("Found prescriptions {}", prescriptions);
     return prescriptions;
+  }
+
+  @Override
+  public Prescription setStatusAsRelased(@NotNull Prescription prescription) {
+    log.info("Setting prescription {} status as withdrowed", prescription);
+    Prescription withdrowedPrescription =
+        prescriptionRepository.setNewStatus(prescription.getId(), PrescriptionStatus.RELEASED);
+    if (isNull(withdrowedPrescription)) {
+      log.error("Error while withdrowing prescritpion");
+    }
+    return withdrowedPrescription;
+  }
+
+  @Override
+  public Prescription setStatusAsCanceled(@NotNull Prescription prescription) {
+    log.info("Setting prescription {} status as withdrowed", prescription);
+    Prescription prescriptionWithNewStatus =
+        prescriptionRepository.setNewStatus(prescription.getId(), PrescriptionStatus.CANCELED);
+    if (isNull(prescriptionWithNewStatus)) {
+      log.error("Error while canceling prescritpion");
+    }
+    return prescriptionWithNewStatus;
   }
 }

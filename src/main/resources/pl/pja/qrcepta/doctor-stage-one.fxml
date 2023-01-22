@@ -46,7 +46,7 @@
                 <Font size="24.0" />
               </font>
             </Label>
-            <Label fx:id="foundPatientName" alignment="CENTER" layoutY="72.0" prefHeight="17.0" prefWidth="238.0" text="imie">
+            <Label fx:id="foundPatientName" alignment="CENTER" layoutY="72.0" prefHeight="17.0" prefWidth="238.0" text="imie" wrapText="true">
               <font>
                 <Font size="24.0" />
               </font>
@@ -58,7 +58,7 @@
             </Label>
           </children>
         </Pane>
-        <Pane fx:id="patientPrescriptionHistoryPane" layoutX="631.0" layoutY="182.0" prefHeight="460.0" prefWidth="271.0" visible="false">
+        <Pane fx:id="patientPrescriptionHistoryPane" layoutX="631.0" layoutY="110.0" prefHeight="532.0" prefWidth="271.0" visible="false">
           <children>
             <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="50.0" prefWidth="238.0" text="Historia recept">
               <font>
@@ -66,10 +66,11 @@
               </font>
             </Label>
             <ListView fx:id="patientPrescriptionHistoryListView" layoutX="18.0" layoutY="75.0" prefHeight="367.0" prefWidth="232.0" />
+                  <Button fx:id="deletePrescriptionButton" layoutX="33.0" layoutY="471.0" mnemonicParsing="false" onAction="#deletePrescription" prefHeight="25.0" prefWidth="205.0" text="Zarchiwizuj zaznaczoną receptę" />
           </children>
         </Pane>
         <Label fx:id="peselSearchingInfoPanel" layoutX="43.0" layoutY="480.0" prefHeight="35.0" prefWidth="271.0" />
-        <Button fx:id="setPrescriptionButton" disable="true" layoutX="44.0" layoutY="578.0" mnemonicParsing="false" onAction="#setPrescription" prefHeight="31.0" prefWidth="193.0" text="Wystaw nową receptę" />
+        <Button fx:id="setPrescriptionButton" disable="true" layoutX="44.0" layoutY="578.0" mnemonicParsing="false" onAction="#setPrescription" prefHeight="31.0" prefWidth="292.0" text="Wystaw nową receptę" />
         <Pane fx:id="addNewPatientPane" layoutX="334.0" layoutY="248.0" prefHeight="380.0" prefWidth="257.0" visible="false">
           <children>
             <Label alignment="CENTER" layoutX="10.0" layoutY="27.0" prefHeight="102.0" prefWidth="238.0" text="Dodaj nowego pacjenta" textAlignment="CENTER" wrapText="true">
@@ -85,13 +86,17 @@
           </children>
         </Pane>
         <Button fx:id="LogOutButton" alignment="CENTER" contentDisplay="RIGHT" layoutX="797.0" layoutY="34.0" mnemonicParsing="false" onAction="#logOutAction" prefHeight="25.0" prefWidth="107.0" text="Wyloguj" />
-        <Label fx:id="usersName" alignment="CENTER_RIGHT" layoutX="584.0" layoutY="30.0" prefHeight="35.0" prefWidth="205.0" textFill="WHITE">
-          <font>
-            <Font size="24.0" />
-          </font>
-        </Label>
+            <Button fx:id="cancelAllButton" layoutX="215.0" layoutY="532.0" mnemonicParsing="false" onAction="#cancelAll" prefHeight="25.0" prefWidth="123.0" text="Anuluj" />
       </children>
     </Pane>
-    <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+         <children>
+            <Label fx:id="usersName" alignment="CENTER_RIGHT" layoutX="707.0" layoutY="8.0" prefHeight="35.0" prefWidth="205.0" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
   </children>
 </GridPane>
