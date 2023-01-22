@@ -35,6 +35,8 @@ public class LogInController {
 
   @FXML private Text loginErrorMsgField;
 
+  @FXML private Button resetPasswordButton;
+
   private UserService userService = new UserServiceImpl();
 
   @FXML
@@ -77,5 +79,11 @@ public class LogInController {
     PauseTransition pause = new PauseTransition(Duration.seconds(MSG_SHOW_TIME_SECONDS));
     pause.setOnFinished(e -> loginErrorMsgField.setText(ERROR_MSG_TEXT_CLEAR));
     pause.play();
+  }
+
+  @FXML
+  void resetPassword(ActionEvent event) {
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    SceneManager.changeSceneToForgotPassword(stage);
   }
 }

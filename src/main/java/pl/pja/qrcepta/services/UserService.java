@@ -18,4 +18,6 @@ public interface UserService {
   User getByLoginAndName(String text, String text1);
 
   Boolean deleteUser(User userToDelete);
+
+  User changePassword(String login, String newPassword);
 }

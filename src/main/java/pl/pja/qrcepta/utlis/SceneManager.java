@@ -15,6 +15,8 @@ import static pl.pja.qrcepta.constants.QrceptaConstants.PHARMACY_SCENE_NAME;
 import static pl.pja.qrcepta.constants.QrceptaConstants.PHARMACY_SCENE_TITLE;
 import static pl.pja.qrcepta.constants.QrceptaConstants.DOCTOR_SAVED_PRESCRIPTION_SCENE;
 import static pl.pja.qrcepta.constants.QrceptaConstants.DOCTOR_SAVED_PRESCRIPTION_TITLE;
+import static pl.pja.qrcepta.constants.QrceptaConstants.FORGOT_PASSWORD_TITLE;
+import static pl.pja.qrcepta.constants.QrceptaConstants.FORGOT_PASSWORD_SCENE;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -77,5 +79,9 @@ public class SceneManager {
 
   public static void changeSceneToPharmacyShowPrescription(Stage stage) {
     changeSceneTo(stage, PHARMACY_RETURN_PRESCRIPTION_SCENE_NAME, PHARMACY_SCENE_TITLE);
+  }
+
+  public static void changeSceneToForgotPassword(Stage stage) {
+    changeSceneTo(stage, FORGOT_PASSWORD_SCENE, FORGOT_PASSWORD_TITLE);
   }
 }

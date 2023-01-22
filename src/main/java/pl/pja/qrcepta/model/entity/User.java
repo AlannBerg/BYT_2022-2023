@@ -30,7 +30,10 @@ import lombok.ToString;
           "select user from User user where user.login = :login and user.hashedPassword = :password"),
   @NamedQuery(
       name = "User.findByLoginAndName",
-      query = "select user from User user where user.login = :login and user.userName = :name")
+      query = "select user from User user where user.login = :login and user.userName = :name"),
+  @NamedQuery(
+      name = "User.findByLogin",
+      query = "select user from User user where user.login = :login")
 })
 @Table(name = "users")
 public class User {

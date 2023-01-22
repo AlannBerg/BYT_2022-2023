@@ -1,5 +1,6 @@
 package pl.pja.qrcepta.controlers.doctor;
 
+import static java.util.Objects.isNull;
 import static pl.pja.qrcepta.constants.QrceptaConstants.ERROR_MSG_COLOR;
 import static pl.pja.qrcepta.constants.QrceptaConstants.MSG_SHOW_TIME_SECONDS;
 import static pl.pja.qrcepta.constants.QrceptaConstants.SUCCESS_MSG_COLOR;
@@ -18,6 +19,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import pl.pja.qrcepta.dataConnection.PatientDataSingleton;
 import pl.pja.qrcepta.dataConnection.PrescriptionDataSingleton;
@@ -87,6 +89,7 @@ public class DoctorControllerTwo implements Initializable {
     UserDataSingleton.getInstance().setUser(null);
   }
 
+  @SneakyThrows
   @FXML
   void savePrescription(ActionEvent event) {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -107,11 +110,14 @@ public class DoctorControllerTwo implements Initializable {
     byte[] qrCodeByteArr = qrGenerator.generateQrPrescription(prescription);
     prescription.setQr_code(qrCodeByteArr);
     prescription = prescriptionService.saveNewPrescription(prescription);
+    if (isNull(prescription)) {
+      showInfo("Błąd podczas zapisywania recepty", ERROR_MSG_COLOR);
+      return;
+    }
     log.debug("Saved prescription {} for patient {}", prescription, patient);
     PrescriptionDataSingleton.getInstance().setPrescription(prescription);
     showInfo("Recepta zapisana poprawnie", SUCCESS_MSG_COLOR);
     PrescriptionDataSingleton.getInstance().setPrescription(null);
-    SceneManager.changeSceneToDoctorStage(stage);
   }
 
   private void showPatientDataPane() {

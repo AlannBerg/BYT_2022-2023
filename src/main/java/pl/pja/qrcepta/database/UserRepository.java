@@ -92,4 +92,30 @@ public class UserRepository {
       entityManager.close();
     }
   }
+
+  public User changePassword(String login, String newPassword) {
+    EntityManager entityManager = getEntityManager();
+    EntityTransaction transaction = entityManager.getTransaction();
+    try {
+      transaction.begin();
+      User userFromDB =
+          entityManager
+              .createNamedQuery("User.findByLogin", User.class)
+              .setParameter("login", login)
+              .getResultList()
+              .stream()
+              .findFirst()
+              .orElse(null);
+      userFromDB.setHashedPassword(newPassword);
+      entityManager.persist(userFromDB);
+      transaction.commit();
+      return userFromDB;
+    } catch (Exception e) {
+      transaction.rollback();
+      log.error("Can not save new user {}", e.getMessage());
+      return null;
+    } finally {
+      entityManager.close();
+    }
+  }
 }

@@ -5,6 +5,8 @@ import javafx.scene.paint.Paint;
 public class QrceptaConstants {
   public static final String LOG_IN_TITLE = "QRCEPTA LOGOWANIE";
   public static final String LOG_IN_SCENE_NAME = "logowanie.fxml";
+  public static final String FORGOT_PASSWORD_TITLE = "QRCEPTA ODZYSIWANIE HASLA";
+  public static final String FORGOT_PASSWORD_SCENE = "forgot-password.fxml";
   public static final double LOG_IN_STAGE_WIDTH = 750;
   public static final double LOG_IN_STAGE_HEIGHT = 500;
 

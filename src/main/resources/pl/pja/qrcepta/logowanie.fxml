@@ -66,6 +66,7 @@
                </font>
             </Text>
             <PasswordField fx:id="passwordLabel" layoutX="50.0" layoutY="294.0" promptText="haslo" />
+            <Button fx:id="resetPasswordButton" layoutX="42.0" layoutY="403.0" mnemonicParsing="false" onAction="#resetPassword" prefHeight="25.0" prefWidth="160.0" text="Zapomnialem hasla" />
       </children>
     </AnchorPane>
   </children>

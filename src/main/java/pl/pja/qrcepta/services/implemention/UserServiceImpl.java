@@ -1,5 +1,6 @@
 package pl.pja.qrcepta.services.implemention;
 
+import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 import javax.validation.constraints.NotNull;
@@ -51,5 +52,15 @@ public class UserServiceImpl implements UserService {
     Boolean deleteWasSuccessful = userRepository.deleteUser(userToDelete);
     log.debug("Deleting user {} was successful {}", userToDelete, deleteWasSuccessful);
     return deleteWasSuccessful;
+  }
+
+  @Override
+  public User changePassword(@NotNull String login, @NotNull String newPassword) {
+    log.info("Changing pasword for user {} ", login);
+    User user = userRepository.changePassword(login, newPassword);
+    if (isNull(user)) {
+      log.debug("Can not update password for {}", login);
+    }
+    return user;
   }
 }
