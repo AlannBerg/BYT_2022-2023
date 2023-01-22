@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pja.qrcepta.controlers.doctor.DoctorController">
+  <children>
+    <ImageView fitHeight="525.0" fitWidth="811.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../src/main/resources/pl/pja/qrcepta/images/doctor-background.jpg" />
+      </image>
+    </ImageView>
+    <ToolBar prefHeight="34.0" prefWidth="788.0">
+      <items>
+        <AnchorPane prefHeight="25.0" prefWidth="702.0">
+          <children>
+            <Label fx:id="doctorsName" layoutX="521.0" layoutY="3.0" prefHeight="20.0" prefWidth="157.0">
+              <font>
+                <Font size="14.0" />
+              </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="339.0" layoutY="4.0" prefHeight="20.0" prefWidth="157.0" text="Doktor">
+              <font>
+                <Font size="14.0" />
+              </font>
+            </Label>
+            <Label fx:id="currentTime" alignment="CENTER" contentDisplay="RIGHT" layoutY="3.0" prefHeight="20.0" prefWidth="157.0">
+              <font>
+                <Font size="14.0" />
+              </font>
+            </Label>
+          </children>
+        </AnchorPane>
+        <Button fx:id="LogOutButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#logOutAction" text="Wyloguj" />
+      </items>
+    </ToolBar>
+    <Label alignment="CENTER" layoutX="235.0" layoutY="40.0" prefHeight="17.0" prefWidth="305.0" text="QRCEPTA" textAlignment="CENTER" textFill="WHITE">
+      <font>
+        <Font size="40.0" />
+      </font>
+    </Label>
+    <Button fx:id="NewPatientButton" layoutX="296.0" layoutY="441.0" mnemonicParsing="false" onAction="#newPatientAction" prefHeight="58.0" prefWidth="183.0" text="Nowy pacjent" />
+  </children>
+</AnchorPane>

@@ -37,7 +37,7 @@ public class SceneManager {
 
   public static void changeSceneToFullScreen(Stage stage, String sceneName, String title) {
     changeSceneTo(stage, sceneName, title);
-    stage.setMaximized(true);
+    stage.setFullScreen(true);
   }
 
   @SneakyThrows
